@@ -7,7 +7,7 @@
 Application de culture générale pour consommateurs & artistes.
 
 > **Possibilité consommateur** : découvrir des oeuvres, artistes, histoire. Découverte de groupes locaux (peu connu) selon préférences.
-> </br> > **Possibilité artiste** : partager son contenu, disposer son portefolio pour les consommateurs, publication de date de rencontre (concert, dédicace, etc.)
+> </br> **Possibilité artiste** : partager son contenu, disposer son portefolio pour les consommateurs, publication de date de rencontre (concert, dédicace, etc.)
 
 ## Dév : Comment installer et participer au développement
 
