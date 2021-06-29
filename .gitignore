@@ -59,8 +59,8 @@ buck-out/
 /ios/Pods/
 
 # VSCode
-./vscode
+.vscode/
 
 # Jest
-./coverage
-./cache
+coverage/
+cache/
