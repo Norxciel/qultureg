@@ -2,7 +2,7 @@
 
 [![GPLv3](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
-## TL;DR : Kézako ?
+## Too Long ; Didn't Read
 
 Application de culture générale pour consommateurs & artistes.
 
