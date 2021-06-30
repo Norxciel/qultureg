@@ -6,7 +6,8 @@ export const themes = {
         colors:{
             ...DefaultTheme.colors,
             // Ajouter les couleurs du thème principal
-            primary:"crimson"
+            primary:"#1C2942",
+            secondary: '#5FC2BA',
         }
     }
 }

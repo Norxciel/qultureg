@@ -8,9 +8,9 @@
     "start": "react-native start",
     "lint": "eslint .",
     "test": "jest --verbose --coverage",
-		"test:update": "jest --verbose --coverage --updateSnapshot",
-		"test:watch": "jest --verbose --watch",
-		"coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html"
+    "test:update": "jest --verbose --coverage --updateSnapshot",
+    "test:watch": "jest --verbose --watch",
+    "coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.6.0",
@@ -29,7 +29,6 @@
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.4.0",
-    "react-native-text-input-mask": "^3.1.4",
     "react-native-vector-icons": "^8.1.0",
     "yup": "^0.32.9"
   },
@@ -46,12 +45,10 @@
   "jest": {
     "preset": "react-native",
     "cacheDirectory": "./cache",
-    "coveragePathIgnorePatterns": [
-    ],
-    "transformIgnorePatterns": [
-    ]
+    "coveragePathIgnorePatterns": [],
+    "transformIgnorePatterns": []
   },
-  "prettier":{
+  "prettier": {
     "tabWidth": 4,
     "useTabs": true
   }
