@@ -64,3 +64,6 @@ buck-out/
 # Jest
 coverage/
 cache/
+
+*.mp4
+img/
