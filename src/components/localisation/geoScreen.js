@@ -1,17 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
+import Geolocation from '@react-native-community/geolocation';
+import MapboxGL from "@react-native-mapbox-gl/maps";
+import { Dimensions } from 'react-native';
 
-export default function GeoScreen(){
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+
+
+
+MapboxGL.setAccessToken("sk.eyJ1IjoiY291bGV1cmRlc29uIiwiYSI6ImNrcWo5ZzU1aTAwOG0ycG5zc3hnanB0MXIifQ.wRAxTtzMPWrqv329kbF0Cg");
+
+
+export default function GeoScreen() {
+
+    const [lon, setLon] = useState('');
+    const [lat, setLat] = useState('');
+
+    Geolocation.getCurrentPosition(info => setLon(info.coords.longitude));
+    Geolocation.getCurrentPosition(info => setLat(info.coords.latitude));
+
+    console.log(lon);
+    console.log(lat);
+
     return (
-        <View style={styles.main_container}>
-            <Text>GeoScreen page</Text>
+        <View style={styles.page}>
+            <View style={styles.container}>
+                <MapboxGL.MapView localizeLabels={true} logoEnabled={false} style={styles.map} >
+                    <MapboxGL.Camera zoomLevel={15} animationMode={'flyTo'} animationDuration={1100} centerCoordinate={[lon, lat]} />
+
+                </MapboxGL.MapView>
+            </View>
         </View>
     )
 }
 const styles = StyleSheet.create({
-    main_container:{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
+    page: {
+        flex: 1,
+
+
     },
+    container: {
+        height: 300,
+        width: windowWidth,
+        backgroundColor: "tomato"
+    },
+    map: {
+        width: "100%",
+        height: windowHeight - 65,
+    }
 });

@@ -8,13 +8,15 @@
     "start": "react-native start",
     "lint": "eslint .",
     "test": "jest --verbose --coverage",
-		"test:update": "jest --verbose --coverage --updateSnapshot",
-		"test:watch": "jest --verbose --watch",
-		"coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html"
+    "test:update": "jest --verbose --coverage --updateSnapshot",
+    "test:watch": "jest --verbose --watch",
+    "coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.6.0",
+    "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-mapbox-gl/maps": "^8.2.1",
     "@react-native-picker/picker": "^1.16.3",
     "@react-navigation/material-bottom-tabs": "^5.3.15",
     "@react-navigation/native": "^5.9.4",
@@ -31,6 +33,7 @@
     "react-native-screens": "^3.4.0",
     "react-native-text-input-mask": "^3.1.4",
     "react-native-vector-icons": "^8.1.0",
+    "react-native-video": "^5.1.1",
     "yup": "^0.32.9"
   },
   "devDependencies": {
@@ -46,12 +49,10 @@
   "jest": {
     "preset": "react-native",
     "cacheDirectory": "./cache",
-    "coveragePathIgnorePatterns": [
-    ],
-    "transformIgnorePatterns": [
-    ]
+    "coveragePathIgnorePatterns": [],
+    "transformIgnorePatterns": []
   },
-  "prettier":{
+  "prettier": {
     "tabWidth": 4,
     "useTabs": true
   }

@@ -4,15 +4,26 @@ import { StyleSheet, View, Text } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import HomeScreen from "./homeScreen"
+import HomeStart from "../HomeStart"
+import Navigator from "../navigation/navigator";
 
-export default function HomeStack() {
-	const Stack = createStackNavigator();
+export default function HomeStack({navigation}) {
+    const Stack = createStackNavigator();
 
-	return (
-		<Stack.Navigator>
-            <Stack.Screen name="home">
-                {()=><HomeScreen/>}
+    return (
+        <Stack.Navigator initialRouteName="homeStart">
+            <Stack.Screen name="home" options={{
+                headerTransparent: true,
+                headerShown: false
+            }}>
+                {() => <Navigator />}
+            </Stack.Screen>
+            <Stack.Screen name="homeStart" options={{
+                headerTransparent: true,
+                headerShown: false
+            }}>
+                {() => <HomeStart />}
             </Stack.Screen>
         </Stack.Navigator>
-	);
+    );
 }

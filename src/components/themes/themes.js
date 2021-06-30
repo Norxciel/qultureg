@@ -6,7 +6,7 @@ export const themes = {
         colors:{
             ...DefaultTheme.colors,
             // Ajouter les couleurs du thème principal
-            primary:"crimson"
+            primary:"#1D2942"
         }
     }
 }
