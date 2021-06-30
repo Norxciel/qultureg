@@ -4,18 +4,18 @@ import { preferenceSchema as Pref } from "./schemas/preferenceSchema";
 
 const DATABASE_NAME = "QultureG_DB";
 
-export async function getRealm() {
+export async function getRealm(verbose=false) {
 	const options = {
 		path: DATABASE_NAME,
 		schema: [User, Pref],
 		schemaVersion: 2,
 	};
 
-	console.log("getRealm::getRealm>Connexion à la base de données...");
+	verbose?console.log("getRealm::getRealm>Connexion à la base de données..."):null;
 
 	return Realm.open(options)
 		.then((realm) => {
-			console.log("getRealm::getRealm>Connexion réussie!");
+			verbose?console.log("getRealm::getRealm>Connexion réussie!"):null;
 			return realm;
 		})
 		.catch((err) => {
