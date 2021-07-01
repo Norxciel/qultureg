@@ -6,6 +6,7 @@ import HomeScreen from "../home/homeScreen";
 import SearchScreen from "../search/searchScreen";
 import GeoScreen from "../localisation/geoScreen";
 import SettingScreen from "../settings/settingsScreen";
+import SettingScreenArtiste from "../settings/settingScreenArtiste"
 
 import { useTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -59,7 +60,7 @@ export default function Navigator(props, {navigation}) {
 						),
 					}}
 				>
-					{() => <SettingScreen />}
+					{() => <SettingScreenArtiste />}
 				</Tab.Screen>
 			</Tab.Navigator>
 

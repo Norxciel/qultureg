@@ -82,3 +82,10 @@ export default function HomeScreen(props) {
 
     )
 }
+const styles = StyleSheet.create({
+    main_container: {
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+});

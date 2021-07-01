@@ -6,7 +6,8 @@ export const themes = {
         colors:{
             ...DefaultTheme.colors,
             // Ajouter les couleurs du thème principal
-            primary:"#1D2942"
+            primary:"#1C2942",
+            secondary: '#5FC2BA',
         }
     }
 }
