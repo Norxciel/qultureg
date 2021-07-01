@@ -21,13 +21,13 @@ export default function App() {
 
 	return (
 		<Provider store={store}>
-			{/* <PaperProvider theme={themes.dark}>
+			<PaperProvider theme={themes.dark}>
 				<NavigationContainer>
 					<HomeStackScreen />
 				</NavigationContainer>
-			</PaperProvider> */}
+			</PaperProvider>
 
-			<PageArtiste/>
+			{/* <PageArtiste/> */}
 		</Provider>
 	);
 }
