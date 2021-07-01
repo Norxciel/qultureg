@@ -32,6 +32,11 @@ export function getUserByPseudo(realm, pseudo) {
 	return users.filtered(`pseudo =='${pseudo}'`);
 }
 
+export function getUserByMailPwd(realm, mail, pwd) {
+	const users = getAllUsers(realm);
+	return users.filtered(`email =='${mail}' && password =='${pwd}'`);
+}
+
 export function createUser(realm, user, verbose=false) {
 	realm.write(() => {
 		realm.create("User", user);
