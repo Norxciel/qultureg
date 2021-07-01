@@ -3,9 +3,9 @@ import { StyleSheet, View, Text } from "react-native";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from "./homeScreen"
 import HomeStart from "../HomeStart"
 import Navigator from "../navigation/navigator";
+import UserLogin from "../forms/userLogScreen"
 import UserInsc from '../UserInsc';
 
 export default function HomeStack({ navigation }) {
@@ -24,6 +24,12 @@ export default function HomeStack({ navigation }) {
                 headerShown: false
             }}>
                 {() => <HomeStart />}
+            </Stack.Screen>
+            <Stack.Screen name="user_login" options={{
+                headerTransparent: true,
+                headerShown: false
+            }}>
+                {(props) => <UserLogin {...props} />}
             </Stack.Screen>
             <Stack.Screen name="UserInsc" options={{
                 headerTransparent: true,
