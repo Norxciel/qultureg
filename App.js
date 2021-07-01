@@ -13,6 +13,7 @@ import HomeStackScreen from "./src/components/home/homeStackScreen";
 
 import PageArtiste from "./src/components/PageArtiste";
 import PortFolio from "./src/components/PortFolio";
+import InscForm from "./src/components/InscForm";
 
 export default function App() {
 	React.useEffect(() => {
@@ -28,7 +29,7 @@ export default function App() {
 				</NavigationContainer> */}
 
 			{/* <PageArtiste/> */}
-			<PortFolio/>
+			<InscForm/>
 
 			</PaperProvider>
 
