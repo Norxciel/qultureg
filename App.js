@@ -7,8 +7,7 @@ import Navigator from "./src/components/navigation/navigator";
 import HomeStart from './src/components/HomeStart';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeStackScreen from "./src/components/home/homeStackScreen"
-
+import HomeStackScreen from "./src/components/home/homeStackScreen";
 
 export default function App() {
 	const Stack = createStackNavigator();
@@ -19,8 +18,7 @@ export default function App() {
 				<HomeStackScreen />
 			
 			</NavigationContainer>
-			{/* <Navigator /> */}
-			{/* <HomeStart /> */}
+
 		</PaperProvider>
 	);
 }
