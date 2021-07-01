@@ -9,7 +9,7 @@ const BackVideo = () => {
         <View>
 
             <Video
-                source={require("../components/video/play.mp4")}
+                source={require("../assets/videos/background/play.mp4")}
                 style={styles.backgroundVideo}
                 muted={true}
                 repeat={true}

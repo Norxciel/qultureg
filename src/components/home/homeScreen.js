@@ -15,7 +15,7 @@ export default function HomeScreen(props) {
                 <View style={{ width: windowWidth, alignItems: 'center' }}>
                     <Image
                         style={{ width: "90%", height: 200, marginBottom: 10, marginTop: 12, borderRadius: 15 }}
-                        source={require('../../img/Pieta.jpeg')}
+                        source={require('../../assets/images/sculpture/Sculpture2.jpeg')}
                         resizeMode="cover"
                     />
                 </View>
@@ -30,7 +30,7 @@ export default function HomeScreen(props) {
                         <View style={{ width: windowWidth, alignItems: 'center' }}>
                             <Image
                                 style={{ width: "90%", borderRadius: 15, height: 100, justifyContent: 'center' }}
-                                source={require('../../img/music.jpeg')}
+                                source={require('../../assets/images/musique/musique_guitare.jpeg')}
                                 resizeMode="cover"
                             />
                             <Text style={{ color: 'white', position: 'relative', bottom: 65, fontSize: 25 }}>Musique </Text>
@@ -42,7 +42,7 @@ export default function HomeScreen(props) {
                         <View style={{ width: windowWidth, alignItems: 'center' }}>
                             <Image
                                 style={{ width: "90%", borderRadius: 15, height: 100, justifyContent: 'center' }}
-                                source={require('../../img/peinture.jpeg')}
+                                source={require('../../assets/images/peinture/peinture1.jpeg')}
                                 resizeMode="cover"
                             />
                             <Text style={{ color: 'white', position: 'relative', bottom: 65, fontSize: 25 }}>Peinture </Text>
@@ -54,7 +54,7 @@ export default function HomeScreen(props) {
                         <View style={{ width: windowWidth, alignItems: 'center' }}>
                             <Image
                                 style={{ width: "90%", borderRadius: 15, height: 100, justifyContent: 'center' }}
-                                source={require('../../img/sculpture.jpeg')}
+                                source={require('../../assets/images/sculpture/Sculpture1.jpeg')}
                                 resizeMode="cover"
                             />
                             <Text style={{ color: 'white', position: 'relative', bottom: 65, fontSize: 25 }}>Sculpture </Text>
@@ -67,7 +67,7 @@ export default function HomeScreen(props) {
                         <View style={{ width: windowWidth, alignItems: 'center' }}>
                             <Image
                                 style={{ width: "90%", borderRadius: 15, height: 100, justifyContent: 'center' }}
-                                source={require('../../img/litterature.jpeg')}
+                                source={require('../../assets/images/litterature/litterature1.jpeg')}
                                 resizeMode="cover"
                             />
                             <Text style={{ color: 'white', position: 'relative', bottom: 65, fontSize: 25 }}>Litterature </Text>

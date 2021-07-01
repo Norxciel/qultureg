@@ -16,7 +16,7 @@ export default function SettingScreen(){
             {/* Container Image + Nom */}
             <View style={styles.containerImage}>
                 <Image 
-                    source={require('../../assets/Images/Profil.png')}
+                    source={require('../../assets/images/profil_pics/profil_jocondeDuck.png')}
                     style={{
                         width: 120,
                         height: 120,

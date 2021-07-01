@@ -65,5 +65,4 @@ buck-out/
 coverage/
 cache/
 
-*.mp4
-img/
+

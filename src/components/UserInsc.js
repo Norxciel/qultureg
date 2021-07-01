@@ -8,7 +8,7 @@ const UserInsc = () => {
         <View style={{ flex: 1, backgroundColor: '#1D2942', alignItems: 'center' }}>
 
             <View style={{ width: 100, height: 100, alignItems: 'center' }}>
-                <Image style={{ width: 300, height: 300 }} source={require('../img/logo_women.png')} />
+                <Image style={{ width: 300, height: 300 }} source={require('../assets/images/unDraw/unDraw_Check2.png')} />
             </View>
 
             <View>
