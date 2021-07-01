@@ -1,26 +1,29 @@
 import React from "react";
 
+import Orientation from "react-native-orientation-locker";
+
+import { Provider } from "react-redux";
+import store from "./src/redux/store";
+
 import { Provider as PaperProvider } from "react-native-paper";
 import { themes } from "./src/components/themes/themes";
 
-import Navigator from "./src/components/navigation/navigator";
-import HomeStart from './src/components/HomeStart';
-import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeStackScreen from "./src/components/home/homeStackScreen"
-
+import HomeStackScreen from "./src/components/home/homeStackScreen";
 
 export default function App() {
-	const Stack = createStackNavigator();
+	React.useEffect(() => {
+		Orientation.lockToPortrait();
+		return () => {};
+	}, []);
 
 	return (
-		<PaperProvider theme={themes.dark}>
-			<NavigationContainer>
-				<HomeStackScreen />
-			
-			</NavigationContainer>
-			{/* <Navigator /> */}
-			{/* <HomeStart /> */}
-		</PaperProvider>
+		<Provider store={store}>
+			<PaperProvider theme={themes.dark}>
+				<NavigationContainer>
+					<HomeStackScreen />
+				</NavigationContainer>
+			</PaperProvider>
+		</Provider>
 	);
 }
