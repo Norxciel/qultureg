@@ -11,6 +11,8 @@ import { themes } from "./src/components/themes/themes";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeStackScreen from "./src/components/home/homeStackScreen";
 
+import PageArtiste from "./src/components/PageArtiste";
+
 export default function App() {
 	React.useEffect(() => {
 		Orientation.lockToPortrait();
@@ -19,11 +21,13 @@ export default function App() {
 
 	return (
 		<Provider store={store}>
-			<PaperProvider theme={themes.dark}>
+			{/* <PaperProvider theme={themes.dark}>
 				<NavigationContainer>
 					<HomeStackScreen />
 				</NavigationContainer>
-			</PaperProvider>
+			</PaperProvider> */}
+
+			<PageArtiste/>
 		</Provider>
 	);
 }
