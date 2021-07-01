@@ -17,9 +17,10 @@ const LogButton = () => {
             <TouchableOpacity style={{
                 width: 150, height: 45, backgroundColor: "#5FC2BAA6",
                 borderRadius: 20, alignItems: 'flex-start', marginTop: 400, alignItems: 'center', justifyContent: 'center'
-            }}>
+            }}
+            onPress={() => navigation.navigate('UserInsc')}>
 
-                <Title style={{ color: 'white' }}>Découvrir</Title>
+                <Title style={{ color: 'white' }}>S'inscrire</Title>
 
             </TouchableOpacity>
 

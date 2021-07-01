@@ -29,8 +29,8 @@ export default function GeoScreen() {
         <View style={styles.page}>
             <View style={styles.container}>
                 <MapboxGL.MapView localizeLabels={true} logoEnabled={false} style={styles.map} >
-                    <MapboxGL.Camera zoomLevel={15} animationMode={'flyTo'} animationDuration={1100} centerCoordinate={[lon, lat]} />
-
+                    <MapboxGL.Camera zoomLevel={15} animationMode={'flyTo'} animationDuration={1100} centerCoordinate={[parseFloat(lon), parseFloat(lat)]} />
+                    <MapboxGL.UserLocation animated={true} renderMode={'native'}/>
                 </MapboxGL.MapView>
             </View>
         </View>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     container: {
         height: 300,
         width: windowWidth,
-        backgroundColor: "tomato"
+  
     },
     map: {
         width: "100%",

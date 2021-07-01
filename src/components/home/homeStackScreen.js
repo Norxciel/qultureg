@@ -6,8 +6,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./homeScreen"
 import HomeStart from "../HomeStart"
 import Navigator from "../navigation/navigator";
+import UserInsc from '../UserInsc';
 
-export default function HomeStack({navigation}) {
+export default function HomeStack({ navigation }) {
     const Stack = createStackNavigator();
 
     return (
@@ -23,6 +24,12 @@ export default function HomeStack({navigation}) {
                 headerShown: false
             }}>
                 {() => <HomeStart />}
+            </Stack.Screen>
+            <Stack.Screen name="UserInsc" options={{
+                headerTransparent: true,
+                headerShown: false
+            }}>
+                {() => <UserInsc />}
             </Stack.Screen>
         </Stack.Navigator>
     );
