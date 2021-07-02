@@ -2,8 +2,30 @@ import React from 'react';
 import { Text, Image, View, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { Title } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import { TextInput } from "react-native-paper";
+
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers"
+import * as yup from "yup";
+
+const validationSchema = yup.object().shape({
+
+})
+
 
 const InscForm = () => {
+
+    const [pwdVisible, setPwdVisble] = React.useState(false);
+    const handlePwdVisible = () => {
+        setPwdVisble(!pwdVisible);
+    };
+
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+    const onSubmit = (data) => console.log(data);
 
     function onChangeEmail(text) {
         alert('hi');
@@ -25,31 +47,57 @@ const InscForm = () => {
             </View>
 
             <View style={{ alignItems: 'center' }}>
-                <TextInput
-                    style={styles.input}
-                    onChangeText={(text) => onChangeEmail(text)}
-                    value={''}
-                    placeholder={'Votre mail ici'}
-                    placeholderTextColor={'#5FC2BA'}
-                    keyboardType="email-address"
+                <Controller
+                    control={control}
+                    rules={{
+                        required: true,
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={styles.input}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                            placeholder={'Votre E-mail ici'}
+                            placeholderTextColor={'#5FC2BA'}
+
+                        />
+                    )}
+                    name="email"
+                    defaultValue=""
+                />
+                {errors.email && <Text style={{ color: '#5FC2BA', marginTop: 5 }}>Ce champ est obligatoire</Text>}
+
+                <Controller
+                    control={control}
+                    rules={{
+                        maxLength: 100,
+                        required: true
+                    }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextInput
+                            style={styles.input}
+                            secureTextEntry={true}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                            placeholder={'Votre mot de passe ici'}
+                            placeholderTextColor={'#5FC2BA'}
+                        />
+                    )}
+                    name="password"
+                    defaultValue=""
                 />
 
-                <TextInput
-                    style={styles.input}
-                    onChangeText={(text) => onChangeEmail(text)}
-                    value={''}
-                    placeholder={'Votre mot de passe ici'}
-                    placeholderTextColor={'#5FC2BA'}
-                    keyboardType="email-address"
-                    secureTextEntry
-                />
+                {errors.password && <Text style={{ color: '#5FC2BA', marginTop: 5 }}>This is required.</Text>
+                }
             </View>
 
             <View style={{ alignItems: 'center' }}>
                 <TouchableOpacity style={{
                     width: 150, height: 45, backgroundColor: "#5FC2BAA6",
                     borderRadius: 20, alignItems: 'flex-start', marginTop: 30, alignItems: 'center', justifyContent: 'center'
-                }}>
+                }} onPress={handleSubmit(onSubmit)} >
 
                     <Title style={{ color: 'white' }}>Connexion</Title>
 
