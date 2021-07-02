@@ -4,7 +4,7 @@ export const artistSchema = {
 	name: "Artist",
 	properties: {
 		_id: "objectId",
-		groupname: "string",
+		name: "string",
 		bio: "string",
 		email: "string",
 		password: "string",
@@ -67,7 +67,7 @@ export function deleteArtistByID(realm, artistID){
 export function addDummyArtist(realm){
 	const dummy = {
 		_id:ObjectId(),
-		groupname:"AC/DC",
+		name:"AC/DC",
 		bio:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas pretium elit sit amet tristique. Praesent posuere urna mi, ut gravida purus consequat et. Donec mattis faucibus magna, a commodo lectus vulputate vel. Sed ac felis commodo, aliquam enim ac, hendrerit augue. Fusce ullamcorper a dolor ornare molestie. Donec sit amet turpis vulputate, fringilla turpis eget, ullamcorper augue. Proin ac diam sed sapien faucibus pretium. Morbi varius efficitur vulputate. Fusce consectetur fringilla justo, vitae tincidunt magna varius vitae. Morbi nec ullamcorper erat"
 		+"Etiam id posuere nisl, sit amet ultrices sem. Nullam dapibus sollicitudin nisi, eu iaculis erat faucibus sagittis. Praesent iaculis velit congue tempor tempus. Mauris ut dapibus ex, at lacinia felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse aliquam felis metus. Mauris scelerisque lectus metus, quis suscipit erat elementum ut."
 		+"Duis bibendum metus ante, in mollis elit fermentum vel. Sed pulvinar in leo et pulvinar. In hac habitasse platea dictumst. Donec a neque fermentum, semper enim lobortis, ornare justo. Nulla facilisi. Pellentesque ac nibh libero. Nam elit eros, sodales in viverra quis, semper maximus elit. In hac habitasse platea dictumst. Vestibulum sit amet vulputate lacus. Donec et posuere neque. Maecenas sollicitudin malesuada mi, ut fermentum risus cursus vitae."
