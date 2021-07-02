@@ -28,8 +28,8 @@ export default function App() {
 					<HomeStackScreen />
 				</NavigationContainer> */}
 
-			{/* <PageArtiste/> */}
-			<InscForm/>
+			<PageArtiste/>
+			{/* <InscForm/> */}
 
 			</PaperProvider>
 

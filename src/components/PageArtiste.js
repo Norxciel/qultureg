@@ -6,7 +6,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const PageArtiste = () => {
 
     return (
-        <View style={{ flex: 1, backgroundColor: '#1D2942', alignItems: 'center' }}>
+        <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
+
+            <TouchableOpacity style={{ padding: 5 }}>
+                <Icon name="less-than" size={30} color={'white'} />
+            </TouchableOpacity>
 
             <View style={{ alignItems: 'center' }}>
                 <Image style={{ width: 180, height: 180, borderRadius: 150, marginTop: 60 }} source={require('../assets/images/profil_pics/profil_jocondeDuck.png')} />
@@ -26,32 +30,34 @@ const PageArtiste = () => {
 
             </View>
 
+            <View style={{alignItems: 'center'}}>
+                <TouchableOpacity style={{
+                    width: 250, height: 45, backgroundColor: "#5FC2BAA6",
+                    borderRadius: 20, alignItems: 'flex-start', marginTop: 40, marginBottom: 20, alignItems: 'center', justifyContent: 'center'
+                }}>
+                    <View style={{ flexDirection: 'row' }}>
 
-            <TouchableOpacity style={{
-                width: 250, height: 45, backgroundColor: "#5FC2BAA6",
-                borderRadius: 20, alignItems: 'flex-start', marginTop: 65, marginBottom: 20, alignItems: 'center', justifyContent: 'center'
-            }}>
-                <View style={{flexDirection: 'row'}}>
-
-                    <Title style={{ color: 'white' }}>Envoyer un mail   </Title>
-                    <Icon name="mail" size={30} color={'white'} />
-                </View>
-
-
-            </TouchableOpacity>
-
-            <TouchableOpacity style={{
-                width: 250, height: 45, backgroundColor: "#5FC2BAA6",
-                borderRadius: 20, alignItems: 'flex-start', marginBottom: 20, alignItems: 'center', justifyContent: 'center'
-            }}>
-                <View style={{flexDirection: 'row'}}>
-
-                    <Title style={{ color: 'white' }}>Portfolio   </Title>
-                    <Icon name="diamond-stone" size={30} color={'white'} />
-                </View>
+                        <Title style={{ color: 'white' }}>Envoyer un mail   </Title>
+                        <Icon name="mail" size={30} color={'white'} />
+                    </View>
 
 
-            </TouchableOpacity>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{
+                    width: 250, height: 45, backgroundColor: "#5FC2BAA6",
+                    borderRadius: 20, alignItems: 'flex-start', marginBottom: 20, alignItems: 'center', justifyContent: 'center'
+                }}>
+                    <View style={{ flexDirection: 'row' }}>
+
+                        <Title style={{ color: 'white' }}>Portfolio   </Title>
+                        <Icon name="diamond-stone" size={30} color={'white'} />
+                    </View>
+
+
+                </TouchableOpacity>
+
+            </View>
 
         </View>
     )
