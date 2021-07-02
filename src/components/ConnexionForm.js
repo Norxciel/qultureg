@@ -13,7 +13,7 @@ const validationSchema = yup.object().shape({
 })
 
 
-const InscForm = () => {
+const ConnexionForm = () => {
 
     const [pwdVisible, setPwdVisble] = React.useState(false);
     const handlePwdVisible = () => {
@@ -43,7 +43,7 @@ const InscForm = () => {
             </View>
 
             <View style={{ alignItems: 'center' }}>
-                <Image style={{ width: "90%", height: 250 }} resizeMode={'contain'} source={require('../assets/images//unDraw/unDraw_Connect.png')} />
+                <Image style={{ width: "90%", height: 250 }} resizeMode={'contain'} source={require('../assets/images/unDraw/unDraw_Connect.png')} />
             </View>
 
             <View style={{ alignItems: 'center' }}>
@@ -110,7 +110,7 @@ const InscForm = () => {
     )
 }
 
-export default InscForm;
+export default ConnexionForm;
 
 const styles = StyleSheet.create({
     container: {
