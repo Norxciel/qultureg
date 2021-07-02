@@ -13,7 +13,7 @@ import HomeStackScreen from "./src/components/home/homeStackScreen";
 
 import PageArtiste from "./src/components/PageArtiste";
 import PortFolio from "./src/components/PortFolio";
-import InscForm from "./src/components/InscForm";
+import Categories from "./src/components/Categories";
 
 export default function App() {
 	React.useEffect(() => {
@@ -28,8 +28,8 @@ export default function App() {
 					<HomeStackScreen />
 				</NavigationContainer> */}
 
-			<PageArtiste/>
-			{/* <InscForm/> */}
+			<Categories/>
+			{/* <Categories/> */}
 
 			</PaperProvider>
 
