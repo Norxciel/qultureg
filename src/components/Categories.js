@@ -64,7 +64,7 @@ const Categories = () => {
                         borderRadius: 20, alignItems: 'flex-start', alignItems: 'center', justifyContent: 'center', marginTop: 50, flexDirection: 'row',
                     }}>
                         <ImageBackground style={{ width: "100%", height: 80, justifyContent: 'center', alignItems: 'center' }} resizeMode='cover' source={require('../assets/images/musique/Rock.jpeg')}>
-                            <Title style={{ color: 'white' }}>Blues</Title>
+                            <Title style={{ color: 'white' }}>Country</Title>
 
                         </ImageBackground>
                     </TouchableOpacity>
@@ -74,20 +74,11 @@ const Categories = () => {
                         borderRadius: 20, alignItems: 'flex-start', alignItems: 'center', justifyContent: 'center', marginTop: 50, flexDirection: 'row',
                     }}>
                         <ImageBackground style={{ width: "100%", height: 80, justifyContent: 'center', alignItems: 'center' }} resizeMode='cover' source={require('../assets/images/musique/Rock.jpeg')}>
-                            <Title style={{ color: 'white' }}>Blues</Title>
+                            <Title style={{ color: 'white' }}>Rap</Title>
 
                         </ImageBackground>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={{
-                        width: "90%", height: 80, backgroundColor: "#5FC2BAA6",
-                        borderRadius: 20, alignItems: 'flex-start', alignItems: 'center', justifyContent: 'center', marginTop: 50, flexDirection: 'row',
-                    }}>
-                        <ImageBackground style={{ width: "100%", height: 80, justifyContent: 'center', alignItems: 'center' }} resizeMode='cover' source={require('../assets/images/musique/Rock.jpeg')}>
-                            <Title style={{ color: 'white' }}>Blues</Title>
-
-                        </ImageBackground>
-                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </View>
