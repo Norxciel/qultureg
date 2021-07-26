@@ -10,6 +10,7 @@ const InscForm = () => {
     }
 
     return (
+    
         <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
 
             <TouchableOpacity style={{ padding: 5 }}>
@@ -29,7 +30,7 @@ const InscForm = () => {
                     style={styles.input}
                     onChangeText={(text) => onChangeEmail(text)}
                     value={''}
-                    placeholder={'Votre mail ici'}
+                    placeholder={' Entrez votre mail'}
                     placeholderTextColor={'#5FC2BA'}
                     keyboardType="email-address"
                 />
@@ -38,7 +39,7 @@ const InscForm = () => {
                     style={styles.input}
                     onChangeText={(text) => onChangeEmail(text)}
                     value={''}
-                    placeholder={'Votre mot de passe ici'}
+                    placeholder={' Entrez votre mot de passe'}
                     placeholderTextColor={'#5FC2BA'}
                     keyboardType="email-address"
                     secureTextEntry
