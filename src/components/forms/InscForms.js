@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, Image, View, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { Title } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useForm, Controller } from "react-hook-form";
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const InscForm = () => {
     const navigation = useNavigation();
 
     const [pwdVisible, setPwdVisble] = React.useState(false);
+    const [signed, setSigned] = useState(false);
+
     const handlePwdVisible = () => {
         setPwdVisble(!pwdVisible);
     };
@@ -18,11 +22,45 @@ const InscForm = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => addRedrirect(data);
 
-    function onChangeEmail(text) {
-        alert('hi');
+    function addRedrirect(data) {
+        addUser(data)
+
     }
+
+    const addUser = async (data) => {
+        auth()
+            .createUserWithEmailAndPassword(data.email, data.password)
+            .then((response) => {
+                console.log(response);
+                ref.doc(response.user.uid).set({
+                    name: data.lastname,
+                    firstname: data.firstname,
+                    nickname: data.nickname,
+                    email: response.user.email,
+                    password: data.password,
+                    uid: response.user.uid
+                })
+            })
+            .catch(error => {
+                if (error.code === 'auth/email-already-in-use') {
+                    console.log('That email address is already in use!');
+                }
+
+                if (error.code === 'auth/invalid-email') {
+                    console.log('That email address is invalid!');
+                }
+
+                console.error(error);
+            });
+        console.log(data);
+
+
+
+    }
+
+    const ref = firestore().collection('UserQultureG');
 
     return (
         <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
@@ -56,7 +94,7 @@ const InscForm = () => {
 
                         />
                     )}
-                    name="firstname"
+                    name="lastname"
                     defaultValue=""
                 />
                 {errors.firstname && <Text style={{ color: '#5FC2BA', marginTop: 5 }}>Ce champ est obligatoire</Text>}
@@ -70,7 +108,7 @@ const InscForm = () => {
                     render={({ field: { onChange, onBlur, value } }) => (
                         <TextInput
                             style={styles.input}
-                            secureTextEntry={true}
+                            secureTextEntry={false}
                             onBlur={onBlur}
                             onChangeText={onChange}
                             value={value}
@@ -78,7 +116,7 @@ const InscForm = () => {
                             placeholderTextColor={'#5FC2BA'}
                         />
                     )}
-                    name="name"
+                    name="firstname"
                     defaultValue=""
                 />
 
@@ -94,7 +132,7 @@ const InscForm = () => {
                     render={({ field: { onChange, onBlur, value } }) => (
                         <TextInput
                             style={styles.input}
-                            secureTextEntry={true}
+                            secureTextEntry={false}
                             onBlur={onBlur}
                             onChangeText={onChange}
                             value={value}
@@ -214,5 +252,6 @@ const styles = StyleSheet.create({
         borderColor: '#5FC2BA',
         borderWidth: 1,
         marginTop: 20,
+        color: '#5FC2BA',
     },
 });
