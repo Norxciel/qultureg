@@ -5,12 +5,10 @@ import {
 	View,
 	TouchableOpacity,
 	// TextInput,
-	KeyboardAvoidingView,
 	StyleSheet,
 } from "react-native";
-import { Title } from "react-native-paper";
+import { Title, TextInput } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { TextInput } from "react-native-paper";
 
 // react-native-keyboard-aware-scroll-view
 
@@ -24,101 +22,131 @@ const validationSchema = yup.object().shape({
 });
 
 const ConnexionForm = () => {
+	const [pwdVisible, setPwdVisble] = React.useState(false);
+	const handlePwdVisible = () => {
+		setPwdVisble(!pwdVisible);
+	};
 
-    const [pwdVisible, setPwdVisble] = React.useState(false);
-    const handlePwdVisible = () => {
-        setPwdVisble(!pwdVisible);
-    };
+	const {
+		control,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(validationSchema),
+	});
 
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
-    const onSubmit = (data) => console.log(data);
+	const onSubmit = (data) => {
+		console.log(data);
+	};
 
-    function onChangeEmail(text) {
-        alert('hi');
-    }
+	return (
+		<View style={{ flex: 1, backgroundColor: "#1D2942" }}>
+			<TouchableOpacity style={{ padding: 5 }}>
+				<Icon name="less-than" size={30} color={"white"} />
+			</TouchableOpacity>
 
-    return (
-        <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
+			<View style={{ alignItems: "center" }}>
+				<Text
+					style={{
+						marginTop: 15,
+						color: "#5FC2BA",
+						fontSize: 45,
+						fontFamily: "Roboto",
+					}}
+				>
+					Se connecter
+				</Text>
+			</View>
 
-            <TouchableOpacity style={{ padding: 5 }}>
-                <Icon name="less-than" size={30} color={'white'} />
-            </TouchableOpacity>
+			<View style={{ alignItems: "center" }}>
+				<Image
+					style={{ width: "90%", height: 250 }}
+					resizeMode={"contain"}
+					source={require("../assets/images/unDraw/unDraw_Connect.png")}
+				/>
+			</View>
 
-            <View style={{ alignItems: 'center' }}>
-                <Text style={{ marginTop: 15, color: '#5FC2BA', fontSize: 45, fontFamily: 'Roboto' }}>Se connecter</Text>
-            </View>
+			<View style={{ alignItems: "center" }}>
+				<Controller
+					control={control}
+					rules={{
+						required: true,
+					}}
+					render={({ field: { onChange, onBlur, value } }) => (
+						<TextInput
+							style={styles.input}
+							onBlur={onBlur}
+							onChangeText={onChange}
+							value={value}
+							placeholder={"Votre E-mail ici"}
+							placeholderTextColor={"#5FC2BA"}
+							autoCapitalize='none'
+						/>
+					)}
+					name="email"
+					defaultValue=""
+				/>
+				{errors.email && (
+					<Text style={{ color: "#5FC2BA", marginTop: 5 }}>
+						Ce champ est obligatoire
+					</Text>
+				)}
 
-            <View style={{ alignItems: 'center' }}>
-                <Image style={{ width: "90%", height: 250 }} resizeMode={'contain'} source={require('../assets/images/unDraw/unDraw_Connect.png')} />
-            </View>
+				<Controller
+					control={control}
+					rules={{
+						maxLength: 100,
+						required: true,
+					}}
+					render={({ field: { onChange, onBlur, value } }) => (
+						<TextInput
+							style={styles.input}
+							secureTextEntry={true}
+							onBlur={onBlur}
+							onChangeText={onChange}
+							value={value}
+							placeholder={"Votre mot de passe ici"}
+							placeholderTextColor={"#5FC2BA"}
+							autoCapitalize='none'
+							right={
+								<TextInput.Icon
+									name={pwdVisible ? "eye-off" : "eye"}
+									onPress={handlePwdVisible}
+								/>
+							}
+						/>
+					)}
+					name="password"
+					defaultValue=""
+				/>
 
-            <View style={{ alignItems: 'center' }}>
-                <Controller
-                    control={control}
-                    rules={{
-                        required: true,
-                    }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            style={styles.input}
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            placeholder={'Votre E-mail ici'}
-                            placeholderTextColor={'#5FC2BA'}
+				{errors.password && (
+					<Text style={{ color: "#5FC2BA", marginTop: 5 }}>
+						This is required.
+					</Text>
+				)}
+			</View>
 
-                        />
-                    )}
-                    name="email"
-                    defaultValue=""
-                />
-                {errors.email && <Text style={{ color: '#5FC2BA', marginTop: 5 }}>Ce champ est obligatoire</Text>}
-
-                <Controller
-                    control={control}
-                    rules={{
-                        maxLength: 100,
-                        required: true
-                    }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            style={styles.input}
-                            secureTextEntry={true}
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            placeholder={'Votre mot de passe ici'}
-                            placeholderTextColor={'#5FC2BA'}
-                        />
-                    )}
-                    name="password"
-                    defaultValue=""
-                />
-
-                {errors.password && <Text style={{ color: '#5FC2BA', marginTop: 5 }}>This is required.</Text>
-                }
-            </View>
-
-            <View style={{ alignItems: 'center' }}>
-                <TouchableOpacity style={{
-                    width: 150, height: 45, backgroundColor: "#5FC2BAA6",
-                    borderRadius: 20, alignItems: 'flex-start', marginTop: 30, alignItems: 'center', justifyContent: 'center'
-                }} onPress={handleSubmit(onSubmit)} >
-
-                    <Title style={{ color: 'white' }}>Connexion</Title>
-
-                </TouchableOpacity>
-            </View>
-
-
-
-        </View>
-    )
-}
+			<View style={{ alignItems: "center" }}>
+				<TouchableOpacity
+					style={{
+						width: 150,
+						height: 45,
+						backgroundColor: "#5FC2BAA6",
+						borderRadius: 20,
+						alignItems: "flex-start",
+						marginTop: 30,
+						alignItems: "center",
+						justifyContent: "center",
+					}}
+					onPress={handleSubmit(onSubmit)}
+				>
+					<Title style={{ color: "white" }}>Connexion</Title>
+				</TouchableOpacity>
+			</View>
+		</View>
+	);
+};
 
 export default ConnexionForm;
 
