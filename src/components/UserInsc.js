@@ -27,6 +27,9 @@ const UserInsc = () => {
                     <TouchableOpacity style={{
                         width: 200, height: 45, backgroundColor: "#5FC2BAA6",
                         borderRadius: 20, alignItems: 'flex-start', marginTop: 350, alignItems: 'center', justifyContent: 'center', marginBottom: 35
+                    }}
+                    onPress={() => {
+                        navigation.navigate('InscForms');
                     }}>
 
                         <Title style={{ color: 'white' }}>Compte Utilisateur</Title>

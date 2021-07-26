@@ -1,10 +1,12 @@
 import React from 'react';
 import { Text, Image, View, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { Title } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useForm, Controller } from "react-hook-form";
 
 const InscForm = () => {
+    const navigation = useNavigation();
 
     const [pwdVisible, setPwdVisble] = React.useState(false);
     const handlePwdVisible = () => {
@@ -26,7 +28,11 @@ const InscForm = () => {
         <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
 
             <TouchableOpacity style={{ padding: 8 }}>
-                <Icon name="less-than" size={30} color={'white'} />
+                <Icon name="less-than" size={30} color={'white'}
+                    onPress={() => {
+                        navigation.goBack();
+                    }}
+                />
             </TouchableOpacity>
 
             <View style={{ alignItems: 'center' }}>

@@ -1,13 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-
 import { createStackNavigator } from "@react-navigation/stack";
-
-import HomeScreen from "./homeScreen"
-import HomeStart from "../HomeStart"
+import HomeStart from "../HomeStart";
 import Navigator from "../navigation/navigator";
 import UserInsc from '../UserInsc';
 import ConnexionForm from "../ConnexionForm";
+import InscForms from '../forms/InscForms';
 
 export default function HomeStack({ navigation }) {
     const Stack = createStackNavigator();
@@ -38,6 +35,13 @@ export default function HomeStack({ navigation }) {
                 headerShown: false
             }}>
                 {() => <ConnexionForm />}
+            </Stack.Screen>
+
+            <Stack.Screen name="InscForms" options={{
+                headerTransparent: true,
+                headerShown: false
+            }}>
+                {() => <InscForms />}
             </Stack.Screen>
         </Stack.Navigator>
     );
