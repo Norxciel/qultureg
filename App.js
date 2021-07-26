@@ -1,20 +1,20 @@
 import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
 
-import Orientation from "react-native-orientation-locker";
-
+// Redux
 import { Provider } from "react-redux";
 import store from "./src/redux/store";
 
+// Themes
 import { Provider as PaperProvider } from "react-native-paper";
 import { themes } from "./src/components/themes/themes";
 
+// Locker
+import Orientation from "react-native-orientation-locker";
+
+// Navigation
 import { NavigationContainer } from "@react-navigation/native";
 import HomeStackScreen from "./src/components/home/homeStackScreen";
-
-import PageArtiste from "./src/components/PageArtiste";
-import PortFolio from "./src/components/PortFolio";
-import ConnexionForm from "./src/components/ConnexionForm";
-import InscForm from "./src/components/forms/InscForms";
 
 export default function App() {
 	React.useEffect(() => {
@@ -23,19 +23,15 @@ export default function App() {
 	}, []);
 
 	return (
-		<Provider store={store}>
-			<PaperProvider theme={themes.dark}>
-				<NavigationContainer>
-					<HomeStackScreen />
-				</NavigationContainer>
-
-			{/* <ConnexionForm/> */}
-			{/* <InscForm/> */}
-
-			{/* <Categories/> */}
-
-			</PaperProvider>
-
-		</Provider>
+		<SafeAreaView style={{ flex: 1, backgroundColor: "#1D2942" }}>
+			<StatusBar barStyle={"light-content"} />
+			<Provider store={store}>
+				<PaperProvider theme={themes.dark}>
+					<NavigationContainer>
+						<HomeStackScreen />
+					</NavigationContainer>
+				</PaperProvider>
+			</Provider>
+		</SafeAreaView>
 	);
 }
