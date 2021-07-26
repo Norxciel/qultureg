@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, Image, View, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import { Text, Image, View, TouchableOpacity, TextInput, StyleSheet, StatusBar } from 'react-native';
 import { Title } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 // import { TextInput } from "react-native-paper";
+import { useNavigation } from '@react-navigation/native';
 
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers"
@@ -14,6 +15,7 @@ const validationSchema = yup.object().shape({
 
 
 const ConnexionForm = () => {
+    const navigation = useNavigation();
 
     const [pwdVisible, setPwdVisble] = React.useState(false);
     const handlePwdVisible = () => {
@@ -32,9 +34,14 @@ const ConnexionForm = () => {
     }
 
     return (
+        
         <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
-
-            <TouchableOpacity style={{ padding: 5 }}>
+            <StatusBar hidden={true} />
+            <TouchableOpacity style={{ padding: 5 }}
+                onPress={() => {
+                    navigation.goBack();
+                }}
+            >
                 <Icon name="less-than" size={30} color={'white'} />
             </TouchableOpacity>
 
@@ -58,7 +65,7 @@ const ConnexionForm = () => {
                             onBlur={onBlur}
                             onChangeText={onChange}
                             value={value}
-                            placeholder={'Votre E-mail ici'}
+                            placeholder={' Votre E-mail ici'}
                             placeholderTextColor={'#5FC2BA'}
 
                         />
@@ -81,7 +88,7 @@ const ConnexionForm = () => {
                             onBlur={onBlur}
                             onChangeText={onChange}
                             value={value}
-                            placeholder={'Votre mot de passe ici'}
+                            placeholder={' Votre mot de passe ici'}
                             placeholderTextColor={'#5FC2BA'}
                         />
                     )}
@@ -96,7 +103,7 @@ const ConnexionForm = () => {
             <View style={{ alignItems: 'center' }}>
                 <TouchableOpacity style={{
                     width: 150, height: 45, backgroundColor: "#5FC2BAA6",
-                    borderRadius: 20, alignItems: 'flex-start', marginTop: 30, alignItems: 'center', justifyContent: 'center'
+                    borderRadius: 20, alignItems: 'flex-start', marginTop: 45, alignItems: 'center', justifyContent: 'center'
                 }} onPress={handleSubmit(onSubmit)} >
 
                     <Title style={{ color: 'white' }}>Connexion</Title>
@@ -124,5 +131,6 @@ const styles = StyleSheet.create({
         borderColor: '#5FC2BA',
         borderWidth: 1,
         marginTop: 20,
+        color: "#5FC2BA"
     },
 });

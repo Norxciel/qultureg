@@ -27,7 +27,8 @@ const LogButton = () => {
             <TouchableOpacity style={{
                 width: 150, height: 45, backgroundColor: "transparent",
                 borderRadius: 20, alignItems: 'flex-start', marginTop: 20, alignItems: 'center', 
-            }}>
+            }}
+            onPress={() => navigation.navigate('ConnexionForm')}>
 
                 <Title style={{ color: 'white' }}>Se connecter</Title>
 

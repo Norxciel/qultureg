@@ -8,7 +8,7 @@ const Tit = () => {
 
     return (
         <View style={{ alignItems: 'center' }}>
-            <Text style={{ marginTop: 15, color: '#5FC2BA', fontSize: 45, fontFamily: 'Roboto' }}>Art Breaker</Text>
+            <Text style={{ marginTop: 15, color: '#5FC2BA', fontSize: 45, fontFamily: 'Roboto' }}>Kulture G</Text>
         </View>
     )
 }

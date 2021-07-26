@@ -22,8 +22,8 @@ export default function GeoScreen() {
     Geolocation.getCurrentPosition(info => setLon(info.coords.longitude));
     Geolocation.getCurrentPosition(info => setLat(info.coords.latitude));
 
-    console.log(lon);
-    console.log(lat);
+    console.log(lon.toString());
+    console.log(lat.toString());
 
     return (
         <View style={styles.page}>
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     },
     map: {
         width: "100%",
-        height: windowHeight - 65,
+        height: windowHeight - 55,
     }
 });

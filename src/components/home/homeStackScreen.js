@@ -7,6 +7,7 @@ import HomeScreen from "./homeScreen"
 import HomeStart from "../HomeStart"
 import Navigator from "../navigation/navigator";
 import UserInsc from '../UserInsc';
+import ConnexionForm from "../ConnexionForm";
 
 export default function HomeStack({ navigation }) {
     const Stack = createStackNavigator();
@@ -30,6 +31,13 @@ export default function HomeStack({ navigation }) {
                 headerShown: false
             }}>
                 {() => <UserInsc />}
+            </Stack.Screen>
+
+            <Stack.Screen name="ConnexionForm" options={{
+                headerTransparent: true,
+                headerShown: false
+            }}>
+                {() => <ConnexionForm />}
             </Stack.Screen>
         </Stack.Navigator>
     );
