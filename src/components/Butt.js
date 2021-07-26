@@ -34,20 +34,11 @@ const LogButton = () => {
 				<Title style={{ color: "white" }}>S'inscrire</Title>
 			</TouchableOpacity>
 
-			<TouchableOpacity
-				style={{
-					width: 150,
-					height: 45,
-					backgroundColor: "transparent",
-					borderRadius: 20,
-					alignItems: "flex-start",
-					marginTop: 20,
-					alignItems: "center",
-				}}
-				onPress={() => navigation.navigate("user_login")}
-			>
-				<Title style={{ color: "white" }}>Se connecter</Title>
-			</TouchableOpacity>
+            <TouchableOpacity style={{
+                width: 150, height: 45, backgroundColor: "transparent",
+                borderRadius: 20, alignItems: 'flex-start', marginTop: 20, alignItems: 'center', 
+            }}
+            onPress={() => navigation.navigate('ConnexionForm')}>
 
 			<TouchableOpacity
 				style={{
