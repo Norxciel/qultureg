@@ -6,7 +6,6 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import { getRealm } from "../../data/getRealm";
 import {
 	getUserByMailPwd,
 } from "../../data/schemas/userSchema";
@@ -32,22 +31,7 @@ export default function UserLogin({ navigation: nav }) {
 		resolver: yupResolver(validationSchema),
 	});
 	const onSubmit = (data) => {
-		getRealm()
-			.then((realm) => {
-				const user = getUserByMailPwd(realm, data.email, data.password);
-
-				if (user.length != 1) {
-					console.log("Aucun utilisateur");
-				} else {
-					setUser(user[0])
-					nav.navigate("home");
-				}
-			})
-			.catch((err) => {
-				console.error(
-					"userLogScreen::onSubmit> Connexion impossible. \n" + err
-				);
-			});
+		alert("Transition to Firebase WIP")
 	};
 
 	return (
