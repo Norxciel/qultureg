@@ -13,70 +13,70 @@ export default function HomeScreen(props) {
     console.log(contexte);
     return (
         <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center'}}>
+                <Text style={{ color: '#FFF', fontSize: 30}}>QultureG</Text>
+            </View>
             <View style={{ flex: 1, width: windowWidth }}>
 
-                <Text style={{ color: '#5FC2BA', fontSize: 18, marginLeft: 18, marginTop: 10 }}>À la une </Text>
+                {/* Title */}
+                <Text style={{ color: '#5FC2BA', fontSize: 18, marginLeft: 18, marginBottom: 10 }}>A la une </Text>
 
-                <View style={{ width: windowWidth, alignItems: 'center' }}>
-                    <Image
-                        style={{ width: "90%", height: 200, marginBottom: 10, marginTop: 12, borderRadius: 15 }}
-                        source={require('../../assets/images/sculpture/Sculpture2.jpeg')}
-                        resizeMode="cover"
-                    />
-                </View>
-
-                <Text style={{ color: '#5FC2BA', fontSize: 18, marginLeft: 18, marginBottom: 10 }}>Catégories </Text>
-
+                {/* ScrollView */}
                 <ScrollView style={{ flex: 1, backgroundColor: '#1D2942' }}>
-
-
-
+                    
+                    {/* A LA UNE 1 */}
                     <TouchableOpacity>
                         <View style={{ width: windowWidth, alignItems: 'center' }}>
                             <Image
-                                style={{ width: "90%", borderRadius: 15, height: 100, justifyContent: 'center' }}
+                                style={{ width: "90%", borderRadius: 15, height: 220, justifyContent: 'center' }}
                                 source={require('../../assets/images/musique/musique_guitare.jpeg')}
                                 resizeMode="cover"
                             />
-                            <Text style={{ color: 'white', position: 'relative', bottom: 65, fontSize: 25 }}>Musique </Text>
-
+                        </View>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', margin: 5}}>
+                            <Text style={{ color: 'white', fontSize: 20 }}>Article 1</Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* A LA UNE 2 */}
                     <TouchableOpacity>
-                        <View style={{ width: windowWidth, alignItems: 'center' }}>
+                        <View style={{ width: windowWidth, alignItems: 'center'}}>
                             <Image
-                                style={{ width: "90%", borderRadius: 15, height: 100, justifyContent: 'center' }}
+                                style={{ width: "90%", borderRadius: 15, height: 220, justifyContent: 'center'}}
                                 source={require('../../assets/images/peinture/peinture1.jpeg')}
                                 resizeMode="cover"
                             />
-                            <Text style={{ color: 'white', position: 'relative', bottom: 65, fontSize: 25 }}>Peinture </Text>
-
+                        </View>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', margin: 5}}>
+                            <Text style={{ color: 'white', fontSize: 20 }}>Article 2</Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* A LA UNE 3 */}
                     <TouchableOpacity>
                         <View style={{ width: windowWidth, alignItems: 'center' }}>
                             <Image
-                                style={{ width: "90%", borderRadius: 15, height: 100, justifyContent: 'center' }}
+                                style={{ width: "90%", borderRadius: 15, height: 220, justifyContent: 'center' }}
                                 source={require('../../assets/images/sculpture/Sculpture1.jpeg')}
                                 resizeMode="cover"
                             />
-                            <Text style={{ color: 'white', position: 'relative', bottom: 65, fontSize: 25 }}>Sculpture </Text>
-
+                        </View>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', margin: 5}}>
+                            <Text style={{ color: 'white', fontSize: 20 }}>Article 3</Text>
                         </View>
                     </TouchableOpacity>
 
-
+                    {/* A LA UNE 4 */}
                     <TouchableOpacity>
                         <View style={{ width: windowWidth, alignItems: 'center' }}>
                             <Image
-                                style={{ width: "90%", borderRadius: 15, height: 100, justifyContent: 'center' }}
-                                source={require('../../assets/images/litterature/litterature1.jpeg')}
+                                style={{ width: "90%", borderRadius: 15, height: 220, justifyContent: 'center' }}
+                                source={require('../../assets/images/sculpture/Sculpture1.jpeg')}
                                 resizeMode="cover"
                             />
-                            <Text style={{ color: 'white', position: 'relative', bottom: 65, fontSize: 25 }}>Litterature </Text>
-
+                        </View>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', margin: 5}}>
+                            <Text style={{ color: 'white', fontSize: 20 }}>Article 4</Text>
                         </View>
                     </TouchableOpacity>
                 </ScrollView>

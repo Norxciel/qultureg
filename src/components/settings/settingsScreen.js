@@ -11,7 +11,7 @@ export default function SettingScreen(){
     <SafeAreaView style={{flex: 1, backgroundColor: '#1C2942'}}>
         <View style={styles.main_container}>
             <View style={styles.containerTitle}>
-                <Text style={styles.Title}>Utilisateur</Text>
+                <Text style={styles.Title}>Paramètre</Text>
             </View>
             {/* Container Image + Nom */}
             <View style={styles.containerImage}>
@@ -35,7 +35,12 @@ export default function SettingScreen(){
                         backgroundColor: '#3B556D',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        marginTop: 10
+                        marginTop: 10, 
+                        shadowColor: themes.dark.colors.secondary,
+                        shadowOffset: { width: 0, height: 2 },
+                        shadowOpacity: 0.5,
+                        shadowRadius: 2,
+                        elevation: 5,
                     }}
                 >
                     <Icon  

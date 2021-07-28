@@ -3,14 +3,14 @@ import { StyleSheet, View, Text, Image, SafeAreaView, TouchableOpacity, ScrollVi
 import { themes } from '../themes/themes';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-const DEFAULT_ICON_SIZE = 26
+const DEFAULT_ICON_SIZE = 28
 
 export default function SettingScreenArtiste (){
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#1C2942'}}>
             <View  style={styles.main_container}>
                 <View style={styles.containerTitle}>
-                    <Text style={styles.Title}>Artiste</Text>
+                    <Text style={styles.Title}>Paramètres</Text>
                 </View>
                 {/* Container Image + Nom */}
             <View style={styles.containerImage}>
@@ -23,6 +23,100 @@ export default function SettingScreenArtiste (){
                     }}
                 />
                 <Text style={styles.Nom}>Nom</Text>
+                <View style={styles.containerIcon1}>
+                </View>
+                <View style={styles.containerIcon2}>
+
+                </View>
+            </View>
+
+            {/* Container 1 Icon réglage */}
+            <View style={styles.containerReglage}>
+                <View style={{ width: '50%',height: '100%',justifyContent: 'center', alignItems: 'center'}}>
+                <TouchableOpacity
+                    style={{
+                        width: 60,
+                        height: 60,
+                        borderRadius: 50,
+                        backgroundColor: '#3B556D',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginTop: 10,
+                        shadowColor: themes.dark.colors.secondary,
+                        shadowOffset: { width: 0, height: 3 },
+                        shadowOpacity: 0.5,
+                        shadowRadius: 2,
+                        elevation: 5,
+                    }}
+                >
+                    <Icon  
+                        name="cog-outline"
+                        size={DEFAULT_ICON_SIZE}
+                        style={{
+                            color: themes.dark.colors.secondary,
+                        }}
+                    />
+                </TouchableOpacity>
+                <Text style={styles.reglage}>RÉGLAGES</Text>
+                </View>
+                <View style={{ width: '50%',height: '100%', justifyContent: 'center', alignItems: 'center'}}>
+                <TouchableOpacity
+                    style={{
+                        width: 60,
+                        height: 60,
+                        borderRadius: 50,
+                        backgroundColor: '#3B556D',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginTop: 10,
+                        shadowColor: themes.dark.colors.secondary,
+                        shadowOffset: { width: 0, height: 3 },
+                        shadowOpacity: 0.5,
+                        shadowRadius: 2,
+                        elevation: 5,
+                    }}
+                >
+                    <Icon  
+                        name="image-plus"
+                        size={DEFAULT_ICON_SIZE}
+                        style={{
+                            color: themes.dark.colors.secondary,
+                        }}
+                    />
+                </TouchableOpacity>
+                <Text style={styles.reglage}>AJOUT MÉDIA</Text>
+                </View>
+            </View>
+            <View>
+            <View style={{ width: '100%',height: '40%', justifyContent: 'center', alignItems: 'center'}}>
+                <TouchableOpacity
+                    style={{
+                        width: 70,
+                        height: 70,
+                        borderRadius: 50,
+                        backgroundColor: themes.dark.colors.secondary,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginTop: 50,
+                        shadowColor: themes.dark.colors.secondary,
+                        shadowOffset: { width: 0, height: 3 },
+                        shadowOpacity: 0.5,
+                        shadowRadius: 2,
+                        elevation: 5,
+                    }}
+                >
+                    <Icon  
+                        name="camera"
+                        size={40}
+                        style={{
+                            color: themes.dark.colors.primary,
+                            alignItems:'center',
+                            justifyContent:'center'
+                        }}
+                    />
+                </TouchableOpacity>
+                <Text style={styles.reglage}>APPAREIL PHOTO</Text>
+                </View>
             </View>
             </View>
         </SafeAreaView>
@@ -39,12 +133,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     containerTitle: {
-        flex: 0.1,
+        flex: 0.2,
         justifyContent: 'center',
         alignItems: 'center'
     },
     containerImage: {
-        flex: 0.2,
+        flex: 0.6,
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: 20
@@ -57,6 +151,22 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         fontSize: 20,
         color: themes.dark.colors.secondary,
+    },
+    containerIcon1: {
+        width: '100%',
+        backgroundColor: 'red'
+    },
+    containerReglage: {
+        flex: 0.3,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        
+        marginTop: 50
+    },
+    reglage: {
+        paddingTop: 10,
+        color: themes.dark.colors.secondary
     },
 })
 
