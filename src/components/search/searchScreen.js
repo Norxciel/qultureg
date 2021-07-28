@@ -5,6 +5,8 @@ import {
 	Text,
 	SafeAreaView,
 	ImageBackground,
+	Image,
+	TouchableOpacity
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { themes } from "../themes/themes";
@@ -19,12 +21,216 @@ const Search = () => {
 				<View style={styles.containerSearch}>
 					<SearchBar />
 				</View>
+
+				{/* Container principal  */}
 				<View style={styles.containerResult}>
-					<ImageBackground
-						source={require("../../assets/images/unDraw/unDraw_Search.png")}
-						style={styles.image}
-					></ImageBackground>
+
+					{/* Container 1 */}
+					<View style={{width: '100%', height: '25%', flexDirection: 'row'}}>
+
+						{/* Bloc 1 left */}
+						<TouchableOpacity style={{ width: '50%', height: '100%',alignItems: 'center'}}>
+							<Image 
+								source={require('../../assets/images/musique/musique1.jpeg')}
+								resizeMode= 'contain'
+								style={{
+									width: '90%',
+									height: '100%',
+									opacity: 0.6
+								}}
+							/>
+							<Text
+								style={{
+								fontWeight: 'bold',
+								color: 'white',
+								position: 'absolute', // child
+								bottom: 60, // position where you want
+								left: 60
+								}}
+							>
+								MUSIQUE
+							</Text>
+						</TouchableOpacity>
+
+						{/* bloc 2 right */}
+						<TouchableOpacity style={{ width: '50%', height: '100%', alignItems: 'center'}}>
+							<Image 
+								source={require('../../assets/images/sculpture/Sculpture1.jpeg')}
+								resizeMode= 'contain'
+								style={{
+									width: '90%',
+									height: '100%',
+									opacity: 0.6
+								}}
+							/>
+							<Text
+								style={{
+								fontWeight: 'bold',
+								color: 'white',
+								position: 'absolute', // child
+								bottom: 60, // position where you want
+								left: 60
+								}}
+							>
+								SCULTURE
+							</Text>
+						</TouchableOpacity>
+					</View>
+					{/* Container 2 */}
+					<View style={{width: '100%', height: '25%', flexDirection: 'row'}}>
+
+						{/* Bloc 1 left */}
+						<TouchableOpacity style={{ width: '50%', height: '100%',alignItems: 'center'}}>
+							<Image 
+								source={require('../../assets/images/litterature/litterature1.jpeg')}
+								resizeMode= 'contain'
+								style={{
+									width: '90%',
+									height: '100%',
+									opacity: 0.6
+								}}
+							/>
+							<Text
+								style={{
+								fontWeight: 'bold',
+								color: 'white',
+								position: 'absolute', // child
+								bottom: 60, // position where you want
+								left: 50
+								}}
+							>
+								LITTÉRATURE
+							</Text>
+						</TouchableOpacity>
+
+						{/* bloc 2 right */}
+						<TouchableOpacity style={{ width: '50%', height: '100%', alignItems: 'center'}}>
+							<Image 
+								source={require('../../assets/images/peinture/peinture5.jpeg')}
+								resizeMode= 'contain'
+								style={{
+									width: '90%',
+									height: '100%',
+									opacity: 0.6
+								}}
+							/>
+							<Text
+								style={{
+								fontWeight: 'bold',
+								color: 'white',
+								position: 'absolute', // child
+								bottom: 60, // position where you want
+								left: 60
+								}}
+							>
+								PEINTURE
+							</Text>
+						</TouchableOpacity>
+					</View>
+					{/* Container 3 */}
+					<View style={{width: '100%', height: '25%', flexDirection: 'row'}}>
+
+						{/* Bloc 1 left */}
+						<TouchableOpacity style={{ width: '50%', height: '100%',alignItems: 'center'}}>
+							<Image 
+								source={require('../../assets/images/Histoire/histoire5.jpeg')}
+								resizeMode= 'contain'
+								style={{
+									width: '90%',
+									height: '100%',
+									opacity: 0.6
+								}}
+							/>
+							<Text
+								style={{
+								fontWeight: 'bold',
+								color: 'white',
+								position: 'absolute', // child
+								bottom: 60, // position where you want
+								left: 60
+								}}
+							>
+								HISTOIRE
+							</Text>
+						</TouchableOpacity>
+
+						{/* bloc 2 right */}
+						<TouchableOpacity style={{ width: '50%', height: '100%', alignItems: 'center'}}>
+							<Image 
+								source={require('../../assets/images/Theatre/Theatre4.jpeg')}
+								resizeMode= 'center'
+								style={{
+									width: '90%',
+									height: '100%',
+									opacity: 0.6,
+								}}
+							/>
+							<Text
+								style={{
+								fontWeight: 'bold',
+								color: 'white',
+								position: 'absolute', // child
+								bottom: 60, // position where you want
+								left: 63
+								}}
+							>
+								THÉÂTRE
+							</Text>
+						</TouchableOpacity>
+					</View>
+					{/* Container 1 */}
+					<View style={{width: '100%', height: '25%', flexDirection: 'row'}}>
+
+						{/* Bloc 1 left */}
+						<TouchableOpacity style={{ width: '50%', height: '100%',alignItems: 'center'}}>
+							<Image 
+								source={require('../../assets/images/Archéologie/Archeo3.jpeg')}
+								resizeMode= 'contain'
+								style={{
+									width: '90%',
+									height: '100%',
+									opacity: 0.6
+								}}
+							/>
+							<Text
+								style={{
+								fontWeight: 'bold',
+								color: 'white',
+								position: 'absolute', // child
+								bottom: 60, // position where you want
+								left: 50
+								}}
+							>
+								ARCHÉOLOGIE
+							</Text>
+						</TouchableOpacity>
+
+						{/* bloc 2 right */}
+						<TouchableOpacity style={{ width: '50%', height: '100%', alignItems: 'center'}}>
+							<Image 
+								source={require('../../assets/images/litterature/litterature1.jpeg')}
+								resizeMode= 'contain'
+								style={{
+									width: '90%',
+									height: '100%',
+									opacity: 0.6
+								}}
+							/>
+							<Text
+								style={{
+								fontWeight: 'bold',
+								color: 'white',
+								position: 'absolute', // child
+								bottom: 60, // position where you want
+								left: 50
+								}}
+							>
+								LITTÉRATURE
+							</Text>
+						</TouchableOpacity>
+					</View>
 				</View>
+				
 			</View>
 		</SafeAreaView>
 	);

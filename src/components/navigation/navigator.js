@@ -21,7 +21,11 @@ export default function Navigator(props, { navigation }) {
 		<Tab.Navigator
 			initialRouteName="home"
 			labeled={false}
-			barStyle={{ backgroundColor: theme.colors.primary }}
+			barStyle={{ 
+				backgroundColor: theme.colors.primary
+			}}
+			activeColor= {theme.colors.secondary}
+        	inactiveColor= '#3B556D'
 		>
 			<Tab.Screen
 				name="home"
