@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeStart from "../HomeStart";
 import Navigator from "../navigation/navigator";
@@ -6,9 +6,24 @@ import UserLogin from "../forms/userLogScreen"
 import UserInsc from '../UserInsc';
 import ConnexionForm from "../ConnexionForm";
 import InscForms from '../forms/InscForms';
+import auth from '@react-native-firebase/auth';
+import MyContext from "../context/UseContext";
 
 export default function HomeStack({ navigation }) {
+
+    const osef = useContext(MyContext)
+
     const Stack = createStackNavigator();
+    const [user, setUser] = useState('');
+
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged(user => {
+            setUser(user?? '')
+            // osef.useContext(MyContext)
+        });
+        return subscriber; // unsubscribe on unmount
+    }, []);
+    // console.log('user', osef);
 
     return (
         <Stack.Navigator initialRouteName="homeStart">
@@ -16,7 +31,7 @@ export default function HomeStack({ navigation }) {
                 headerTransparent: true,
                 headerShown: false
             }}>
-                {() => <Navigator />}
+                {(props) => <Navigator {...props} />}
             </Stack.Screen>
             <Stack.Screen name="homeStart" options={{
                 headerTransparent: true,
@@ -24,12 +39,7 @@ export default function HomeStack({ navigation }) {
             }}>
                 {() => <HomeStart />}
             </Stack.Screen>
-            <Stack.Screen name="user_login" options={{
-                headerTransparent: true,
-                headerShown: false
-            }}>
-                {(props) => <UserLogin {...props} />}
-            </Stack.Screen>
+
             <Stack.Screen name="UserInsc" options={{
                 headerTransparent: true,
                 headerShown: false

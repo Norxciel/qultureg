@@ -1,11 +1,16 @@
 import React from 'react'
+import { useContext } from 'react'
+
 import { StyleSheet, View, Text, StatusBar, Image, ScrollView, TouchableOpacity } from 'react-native'
 import { Dimensions } from 'react-native';
+import MyContext from '../context/UseContext';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default function HomeScreen(props) {
+    const contexte = useContext(MyContext)
+    console.log(contexte);
     return (
         <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
             <View style={{ flex: 1, width: windowWidth }}>
