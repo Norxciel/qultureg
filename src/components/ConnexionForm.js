@@ -94,6 +94,7 @@ console.log(user);
 				render={({ field: { onChange, onBlur, value } }) => (
 					<TextInput
 						style={styles.input}
+						theme={{colors:{text:"white"}}}
 						onBlur={onBlur}
 						onChangeText={onChange}
 						value={value}
@@ -120,7 +121,8 @@ console.log(user);
 				render={({ field: { onChange, onBlur, value } }) => (
 					<TextInput
 						style={styles.input}
-						secureTextEntry={true}
+						theme={{colors:{text:"white"}}}
+						secureTextEntry={!pwdVisible}
 						onBlur={onBlur}
 						onChangeText={onChange}
 						value={value}
@@ -130,6 +132,7 @@ console.log(user);
 						right={
 							<TextInput.Icon
 								name={pwdVisible ? "eye-off" : "eye"}
+								color="#5FC2BA"
 								onPress={handlePwdVisible}
 							/>
 						}
