@@ -3,7 +3,8 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import HomeScreen from "../home/homeScreen";
 import SearchScreen from "../search/searchScreen";
 import GeoScreen from "../localisation/geoScreen";
-import SettingScreen from "../settings/settingsScreen";
+// import SettingScreen from "../settings/settingsScreen";
+import StackSearchScreen from "./stackSearch"
 import SettingScreenArtiste from "../settings/settingScreenArtiste";
 import MyContext from "../context/UseContext";
 import { useTheme } from "react-native-paper";
@@ -11,7 +12,8 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const DEFAULT_ICON_SIZE = 26;
 
-export default function Navigator(props, { navigation }) {
+export default function Navigator(props) {
+	const { navigation: stackNav } = props;
 	const Tab = createMaterialBottomTabNavigator();
 	const theme = useTheme();
 	const { user } = props
@@ -20,10 +22,10 @@ export default function Navigator(props, { navigation }) {
 			initialRouteName="home"
 			labeled={false}
 			barStyle={{
-				backgroundColor: theme.colors.primary
+				backgroundColor: theme.colors.primary,
 			}}
 			activeColor={theme.colors.secondary}
-			inactiveColor='#3B556D'
+			inactiveColor="#3B556D"
 		>
 			<Tab.Screen
 				name="home"
@@ -52,7 +54,7 @@ export default function Navigator(props, { navigation }) {
 					),
 				}}
 			>
-				{() => <SearchScreen />}
+				{() => <StackSearchScreen />}
 			</Tab.Screen>
 			<Tab.Screen
 				name="loc"
@@ -80,7 +82,7 @@ export default function Navigator(props, { navigation }) {
 					),
 				}}
 			>
-				{() => <SettingScreenArtiste />}
+				{() => <SettingScreenArtiste stackNav={stackNav} />}
 			</Tab.Screen>
 		</Tab.Navigator>
 

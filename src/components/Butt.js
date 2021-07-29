@@ -46,7 +46,7 @@ const LogButton = () => {
 				}}
 				onPress={() => navigation.navigate("ConnexionForm")}
 			>
-				<Text style={{ color: "white" }}>Se connecter</Text>
+				<Title style={{ color: "white" }}>Se connecter</Title>
 			</TouchableOpacity>
 
 			<TouchableOpacity
