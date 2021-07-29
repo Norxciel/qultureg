@@ -2,20 +2,26 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
 import { Button } from "react-native-paper";
-
 import { themes } from "../themes/themes";
 
-export default function RequestAccount() {
+export default function RequestAccount({ stackNav }) {
 	return (
 		<View style={[styles.main_container]}>
-			<View style={[styles.center,{flex:3}]}>
-				<Text style={{ color: "white", fontSize:24, textAlign:"center" }}>
+			<View style={[styles.center, { flex: 3 }]}>
+				<Text
+					style={{
+						color: "white",
+						fontSize: 24,
+						textAlign: "center",
+					}}
+				>
 					Pour accéder à cet espace, veuillez vous connecter.
 				</Text>
 			</View>
-			<View style={[styles.center,{flex:3, width:"100%"}]}>
+			<View style={[styles.center, { flex: 3, width: "100%" }]}>
 				<Button
-                    style={styles.btn}
+					style={styles.btn}
+					onPress={() => stackNav.navigate("ConnexionForm")}
 					mode="contained"
 					theme={{
 						colors: { primary: themes.dark.colors.secondary },
@@ -24,7 +30,8 @@ export default function RequestAccount() {
 					Se connecter
 				</Button>
 				<Button
-                    style={styles.btn}
+					style={styles.btn}
+					onPress={() => stackNav.navigate("InscForms")}
 					theme={{
 						colors: { primary: themes.dark.colors.secondary },
 					}}
@@ -41,11 +48,11 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 	},
-    center:{
-        alignItems: "center",
+	center: {
+		alignItems: "center",
 		justifyContent: "center",
-    },
-    btn:{
-        width:"70%"
-    }
+	},
+	btn: {
+		width: "70%",
+	},
 });

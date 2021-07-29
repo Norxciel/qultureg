@@ -13,7 +13,8 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const DEFAULT_ICON_SIZE = 26;
 
-export default function Navigator(props, { navigation }) {
+export default function Navigator(props) {
+	const { navigation: stackNav } = props;
 	const Tab = createMaterialBottomTabNavigator();
 	const theme = useTheme();
 
@@ -21,11 +22,11 @@ export default function Navigator(props, { navigation }) {
 		<Tab.Navigator
 			initialRouteName="home"
 			labeled={false}
-			barStyle={{ 
-				backgroundColor: theme.colors.primary
+			barStyle={{
+				backgroundColor: theme.colors.primary,
 			}}
-			activeColor= {theme.colors.secondary}
-        	inactiveColor= '#3B556D'
+			activeColor={theme.colors.secondary}
+			inactiveColor="#3B556D"
 		>
 			<Tab.Screen
 				name="home"
@@ -82,7 +83,7 @@ export default function Navigator(props, { navigation }) {
 					),
 				}}
 			>
-				{() => <SettingScreenArtiste />}
+				{() => <SettingScreenArtiste stackNav={stackNav} />}
 			</Tab.Screen>
 		</Tab.Navigator>
 	);

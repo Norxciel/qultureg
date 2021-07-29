@@ -15,9 +15,8 @@ import RequestAccount from "../utils/requestAccount";
 
 const DEFAULT_ICON_SIZE = 28;
 
-export default function SettingScreenArtiste() {
+export default function SettingScreenArtiste({stackNav}) {
 	const context = React.useContext(MyContext);
-	console.log(context);
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#1C2942" }}>
 			{context.user ? (
@@ -152,7 +151,7 @@ export default function SettingScreenArtiste() {
 					</View>
 				</View>
 			) : (
-                <RequestAccount/>
+                <RequestAccount stackNav={stackNav}/>
 			)}
 		</SafeAreaView>
 	);
