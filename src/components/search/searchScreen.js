@@ -16,8 +16,11 @@ import { themes } from "../themes/themes";
 
 // import components
 import SearchBar from "./searchBar";
+import CardItem from "../utils/cardItem";
 
-const Search = () => {
+import firestore from "@react-native-firebase/firestore";
+
+const Search = ({navigation}) => {
 	const [data, setData] = React.useState([]);
 
 	const resetData = () => {
@@ -27,8 +30,31 @@ const Search = () => {
 	const [searchQuery, setSearchQuery] = React.useState("");
 	const onChangeSearch = (query) => setSearchQuery(query);
 
+	
+
 	React.useEffect(() => {
 		// Effect
+		if(searchQuery!=""){
+			firestore()
+			.collection("Articles")
+			.get()
+			.then((query) => {
+				let li = [];
+				query.forEach((art) => {
+					if (art.data().Genre.startsWith(searchQuery)) {
+						console.log("matching!");
+						li.push(art.data());
+					}
+				});
+				li.length>0?setData(li):setData([])
+				
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		}else{
+			setData([])
+		}
 		return () => {
 			// Clean Up
 		};
@@ -36,27 +62,36 @@ const Search = () => {
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#1C2942" }}>
-			{data.length != 0 ? (
-				<FlatList
-					data={data}
-					keyExtractor={(item, id) => id}
-					renderItem={({ item }) => {
-						return <Text>Bonjour</Text>;
+			<View style={styles.containerSearch}>
+				<Searchbar
+					placeholder="Recherche..."
+					onChangeText={onChangeSearch}
+					value={searchQuery}
+					style={{
+						width: "90%",
 					}}
 				/>
+			</View>
+			{data.length != 0 ? (
+				<View style={{flex:5}}>
+					<FlatList
+						data={data}
+						keyExtractor={(item, id) => id}
+						numColumns={1}
+						renderItem={({ item }) => {
+							const { Artiste, Genre, Durée, Article } = item;
+							console.log(Object.keys(item));
+							return (
+								<CardItem
+									item={item}
+									nav={navigation}
+								/>
+							);
+						}}
+					/>
+				</View>
 			) : (
 				<View style={styles.main_container}>
-					<View style={styles.containerSearch}>
-						<Searchbar
-							placeholder="Recherche..."
-							onChangeText={onChangeSearch}
-							value={searchQuery}
-							style={{
-								width: "90%",
-							}}
-						/>
-					</View>
-
 					{/* Container principal  */}
 					<View style={styles.containerResult}>
 						{/* Container 1 */}
@@ -339,12 +374,12 @@ const Search = () => {
 };
 const styles = StyleSheet.create({
 	main_container: {
-		flex: 1,
+		flex: 5,
 		alignItems: "center",
 		justifyContent: "center",
 	},
 	containerSearch: {
-		flex: 0.1,
+		flex: 1,
 		width: "100%",
 		justifyContent: "center",
 		alignItems: "center",

@@ -5,7 +5,8 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import HomeScreen from "../home/homeScreen";
 import SearchScreen from "../search/searchScreen";
 import GeoScreen from "../localisation/geoScreen";
-import SettingScreen from "../settings/settingsScreen";
+// import SettingScreen from "../settings/settingsScreen";
+import StackSearchScreen from "./stackSearch"
 import SettingScreenArtiste from "../settings/settingScreenArtiste";
 
 import { useTheme } from "react-native-paper";
@@ -55,7 +56,7 @@ export default function Navigator(props) {
 					),
 				}}
 			>
-				{() => <SearchScreen />}
+				{() => <StackSearchScreen />}
 			</Tab.Screen>
 			<Tab.Screen
 				name="loc"
