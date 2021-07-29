@@ -147,13 +147,13 @@ const ConnexionForm = () => {
 								placeholder={"Votre mot de passe ici"}
 								placeholderTextColor={"#5FC2BA"}
 								autoCapitalize="none"
-								right={
+								right={() => (
 									<TextInput.Icon
 										name={pwdVisible ? "eye-off" : "eye"}
 										color="#5FC2BA"
 										onPress={handlePwdVisible}
 									/>
-								}
+								)}
 								name="password"
 								defaultValue=""
 							/>
