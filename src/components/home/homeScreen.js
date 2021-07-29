@@ -29,10 +29,8 @@ export default function HomeScreen(props) {
                 });
                 setList(list)
             });
-        }, [])
-      }),
-
-    
+        })
+      }, []);
 
     function logOut() {
         auth()
