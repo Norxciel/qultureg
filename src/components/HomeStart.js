@@ -37,37 +37,8 @@ const HomeStart = (props) => {
     return (
 
         (customer.user != null) ?
-            <View>
-                <StatusBar hidden={true} />
-                <Video />
-                <View style={{ padding: 8, alignItems: 'center' }}>
-                    <Titre />
-                    <Text style={{ color: '#5FC2BA', fontSize: 20 }}> Bienvenue {customer.user.uid}</Text>
-                </View>
+        <Navigator/>
 
-                <View style={{ alignItems: 'center' }}>
-
-                    <TouchableOpacity style={{
-                        width: 150,
-                        height: 45,
-                        backgroundColor: "#5FC2BAA6",
-                        borderRadius: 20,
-                        alignItems: "flex-start",
-                        marginTop: 20,
-                        alignItems: "center",
-                        justifyContent: "center",
-                    }}
-                        onPress={() => {
-                            logOut();
-                        }}>
-                        <Text style={{ color: "white" }}>Se déconnecter</Text>
-                    </TouchableOpacity>
-
-
-
-                </View>
-
-            </View>
             :
             <View>
                 <StatusBar hidden={true} />
