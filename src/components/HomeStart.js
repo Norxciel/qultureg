@@ -1,31 +1,39 @@
 import React, { useContext, useState } from 'react'
-import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native'
+import { View, Text, StatusBar, TouchableOpacity } from 'react-native'
 import Video from './Video';
 import Titre from './Titre';
-import Butt from './Butt';
 import MyContext from './context/UseContext';
-import { TouchableNativeFeedbackComponent } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import { useEffect } from 'react';
+import Navigator from './navigation/navigator';
+import Butt from './Butt';
 
 const HomeStart = (props) => {
     const customer = useContext(MyContext);
 
-    const ref = firestore().collection('UserQultureG')
+    const ref = firestore().collection('UserQultureG');
+
     function logOut() {
         auth()
             .signOut()
-            .then(() => {alert('User signed out!'); customer.setUser('')});
+            .then(() => { Alert.alert('User signed out!'); customer.setUser('') });
     }
 
 
-    useEffect(() => {
-        ref.doc(customer.user).get()
-        .then(res => {
-            console.log(res.data());
-        })
+    ref.onSnapshot(querySnapshot => {
+        const list = [];
+        querySnapshot.forEach(doc => {
+            const { name, firstname, nickname, email, password, uid } = doc.data();
+            list.push({
+                id: doc.id,
+                lastname: name,
+                firstname: firstname,
+            });
+            // console.log(list);
+        });
     }, []);
+
     return (
 
         (customer.user != null) ?
@@ -34,7 +42,7 @@ const HomeStart = (props) => {
                 <Video />
                 <View style={{ padding: 8, alignItems: 'center' }}>
                     <Titre />
-                    <Text style={{ color: '#5FC2BA', fontSize: 20 }}> Bienvenue {customer.user.email}</Text>
+                    <Text style={{ color: '#5FC2BA', fontSize: 20 }}> Bienvenue {customer.user.uid}</Text>
                 </View>
 
                 <View style={{ alignItems: 'center' }}>
@@ -66,15 +74,13 @@ const HomeStart = (props) => {
                 <Video />
                 <View style={{ padding: 8, alignItems: 'center' }}>
                     <Titre />
-
                 </View>
 
                 <View style={{ alignItems: 'center' }}>
-                    <Butt {...props} />
+
+                    <Butt />
                 </View>
-
             </View>
-
 
     )
 }

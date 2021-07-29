@@ -16,7 +16,7 @@ const InscForm = () => {
     const contexte = useContext(MyContext); // instaurer UseContext
 
     const [pwdVisible, setPwdVisble] = React.useState(false);
-    const [signed, setSigned] = useState(false);
+    const [list, setList] = useState('');
 
     const handlePwdVisible = () => {
         setPwdVisble(!pwdVisible);
@@ -62,17 +62,18 @@ const InscForm = () => {
 
                 console.error(error);
             });
-        console.log(data);
+
     }
 
     ref.onSnapshot(querySnapshot => {
         const list = [];
         querySnapshot.forEach(doc => {
-            const { lastname, firstname, nickname, email, password, uid } = doc.data();
+            const { name, firstname, nickname, email, password, uid } = doc.data();
             list.push({
                 id: doc.id,
-                uid,
+                name, firstname, nickname, email, password, uid
             });
+            setList(list)
             // console.log(list);
         });
     }, [])

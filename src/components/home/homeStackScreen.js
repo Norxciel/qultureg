@@ -19,11 +19,11 @@ export default function HomeStack({ navigation }) {
     useEffect(() => {
         const subscriber = auth().onAuthStateChanged(user => {
             setUser(user?? '')
-            // osef.useContext(MyContext)
+
         });
         return subscriber; // unsubscribe on unmount
     }, []);
-    // console.log('user', osef);
+
 
     return (
         <Stack.Navigator initialRouteName="homeStart">

@@ -25,8 +25,6 @@ export default function App() {
 		return () => { };
 	}, []);
 
-
-
 	const [user, setUser] = useState('');
 
 useEffect(() => {
