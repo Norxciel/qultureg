@@ -34,7 +34,6 @@ export default function UserUpdate() {
 	const onSubmit = (data) => {
 		const {} = data;
 		console.log("Update user!\n");
-		// console.log(data);
 	};
 
 	return (

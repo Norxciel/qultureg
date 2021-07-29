@@ -41,8 +41,6 @@ const InscForm = () => {
             .createUserWithEmailAndPassword(data.email, data.password)
             .then((response) => {
 
-                // console.log(response.user.uid);
-
                 ref.doc(response.user.uid).set({
                     name: data.lastname,
                     firstname: data.firstname,
@@ -74,7 +72,6 @@ const InscForm = () => {
                 name, firstname, nickname, email, password, uid
             });
             setList(list)
-            // console.log(list);
         });
     }, [])
 

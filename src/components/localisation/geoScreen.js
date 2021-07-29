@@ -4,20 +4,6 @@ import Geolocation from '@react-native-community/geolocation';
 import MapboxGL from "@react-native-mapbox-gl/maps";
 import { Dimensions } from "react-native";
 
-// edit logging messages
-// Logger.setLogCallback((log) => {
-// 	const { message } = log;
-// 	console.log(log);
-// 	// expected warnings - see https://github.com/mapbox/mapbox-gl-native/issues/15341#issuecomment-522889062
-// 	if (
-// 		message.match("Request failed due to a permanent error: Canceled") ||
-// 		message.match("Request failed due to a permanent error: Socket Closed")
-// 	) {
-// 		return true;
-// 	}
-// 	return false;
-// });
-
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
@@ -29,9 +15,6 @@ export default function GeoScreen() {
 
 	Geolocation.getCurrentPosition(info => setLon(info.coords.longitude));
 	Geolocation.getCurrentPosition(info => setLat(info.coords.latitude));
-
-	console.log(lon);
-	console.log(lat);
 
 	return (
 		<View style={styles.page}>

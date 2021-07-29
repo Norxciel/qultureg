@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import firestore from '@react-native-firebase/firestore';
 
 import { StyleSheet, View, Text, StatusBar, Image, ScrollView, TouchableOpacity } from 'react-native'
@@ -17,20 +17,22 @@ export default function HomeScreen(props) {
     const [list, setList] = useState('')
 
     const { user } = props;
-console.log(user);
 
-    ref.onSnapshot(querySnapshot => {
-        const list = [];
-        querySnapshot.forEach(doc => {
-            const { name, firstname, nickname, email, password, uid } = doc.data();
-            list.push({
-                id: doc.id,
-                name, firstname, nickname, email, password, uid
+    useEffect(() => {
+        ref.onSnapshot(querySnapshot => {
+            const list = [];
+            querySnapshot.forEach(doc => {
+                const { name, firstname, nickname, email, password, uid } = doc.data();
+                list.push({
+                    id: doc.id,
+                    name, firstname, nickname, email, password, uid
+                });
+                setList(list)
             });
-            setList(list)
+        }, [])
+      }),
 
-        });
-    }, [])
+    
 
     function logOut() {
         auth()
