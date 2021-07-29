@@ -1,13 +1,11 @@
 import React from "react";
-
-import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import HomeScreen from "../home/homeScreen";
 import SearchScreen from "../search/searchScreen";
 import GeoScreen from "../localisation/geoScreen";
 import SettingScreen from "../settings/settingsScreen";
 import SettingScreenArtiste from "../settings/settingScreenArtiste";
-
+import MyContext from "../context/UseContext";
 import { useTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -16,16 +14,16 @@ const DEFAULT_ICON_SIZE = 26;
 export default function Navigator(props, { navigation }) {
 	const Tab = createMaterialBottomTabNavigator();
 	const theme = useTheme();
-
+	const { user } = props
 	return (
 		<Tab.Navigator
 			initialRouteName="home"
 			labeled={false}
-			barStyle={{ 
+			barStyle={{
 				backgroundColor: theme.colors.primary
 			}}
-			activeColor= {theme.colors.secondary}
-        	inactiveColor= '#3B556D'
+			activeColor={theme.colors.secondary}
+			inactiveColor='#3B556D'
 		>
 			<Tab.Screen
 				name="home"
@@ -39,7 +37,7 @@ export default function Navigator(props, { navigation }) {
 					),
 				}}
 			>
-				{() => <HomeScreen />}
+				{() => <HomeScreen user={user} />}
 			</Tab.Screen>
 			<Tab.Screen
 				name="search"
@@ -85,5 +83,6 @@ export default function Navigator(props, { navigation }) {
 				{() => <SettingScreenArtiste />}
 			</Tab.Screen>
 		</Tab.Navigator>
+
 	);
 }
