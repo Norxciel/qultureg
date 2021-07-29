@@ -6,7 +6,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const DEFAULT_ICON_SIZE = 26
 
-export default function SettingScreen(){
+export default function SettingScreen({stackNav}){
     return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#1C2942'}}>
         <View style={styles.main_container}>

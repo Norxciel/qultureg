@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, ScrollView } from "react-native";
 
 // Style
 import { TextInput, Button } from "react-native-paper";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons"
 
 // Form
 import { useForm, Controller } from "react-hook-form";
@@ -21,7 +20,11 @@ const validateSchema = yup.object().shape({
 });
 
 export default function UserUpdate() {
-    const [pwdVisible, setPwdVisible] = React.useState(false)
+	const [pwdVisible, setPwdVisible] = React.useState(false);
+
+	const handlePwdVisible = () => {
+		setPwdVisible(!pwdVisible);
+	};
 
 	const {
 		control,
@@ -56,9 +59,7 @@ export default function UserUpdate() {
 					},
 				]}
 			>
-				<ScrollView
-					style={{ width: "80%" }}
-				>
+				<ScrollView style={{ width: "80%" }}>
 					<View style={{}}>
 						<View style={styles.wrap_inp}>
 							<Controller
@@ -71,8 +72,8 @@ export default function UserUpdate() {
 									return (
 										<TextInput
 											style={styles.inp}
+											theme={{colors:{text:"white"}}}
 											placeholder="Prénom"
-											underlineColor="#ADF1D2"
 											onBlur={onBlur}
 											onChangeText={onChange}
 											value={value}
@@ -95,8 +96,8 @@ export default function UserUpdate() {
 									return (
 										<TextInput
 											style={styles.inp}
+											theme={{colors:{text:"white"}}}
 											placeholder="Nom"
-											underlineColor="#ADF1D2"
 											onBlur={onBlur}
 											onChangeText={onChange}
 											value={value}
@@ -119,8 +120,8 @@ export default function UserUpdate() {
 									return (
 										<TextInput
 											style={styles.inp}
+											theme={{colors:{text:"white"}}}
 											placeholder="Pseudo"
-											underlineColor="#ADF1D2"
 											onBlur={onBlur}
 											onChangeText={onChange}
 											value={value}
@@ -143,8 +144,8 @@ export default function UserUpdate() {
 									return (
 										<TextInput
 											style={styles.inp}
+											theme={{colors:{text:"white"}}}
 											placeholder="Email"
-											underlineColor="#ADF1D2"
 											onBlur={onBlur}
 											onChangeText={onChange}
 											value={value}
@@ -167,10 +168,21 @@ export default function UserUpdate() {
 									return (
 										<TextInput
 											style={styles.inp}
-                                            secureTextEntry={pwdVisible}
-                                            right={<Icon name="eye"/>}
+											theme={{colors:{text:"white"}}}
+											secureTextEntry={!pwdVisible}
+											right={
+												<TextInput.Icon
+													name={
+														pwdVisible
+															? "eye-off"
+															: "eye"
+													}
+													color="#5FC2BA"
+													onPress={handlePwdVisible}
+												/>
+											}
 											placeholder="Mot de passe"
-											underlineColor="#ADF1D2"
+											placeholderTextColor="#5FC2BA"
 											onBlur={onBlur}
 											onChangeText={onChange}
 											value={value}
@@ -209,7 +221,13 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 		// width: "80%",
 	},
-	inp: {},
+	inp: {
+		height: 50,
+		backgroundColor: "#1D2942",
+		borderColor: "#5FC2BA",
+		borderWidth: 1,
+		marginTop: 20,
+	},
 	btn: {
 		width: "100%",
 	},

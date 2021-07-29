@@ -1,66 +1,53 @@
-import React from 'react';
-import { Text, Image, View, TouchableOpacity } from 'react-native';
-import { Title } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import React from "react";
+import { Text, Image, View, TouchableOpacity, ScrollView } from "react-native";
+import { Title } from "react-native-paper";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-const PageArtiste = () => {
+const PageArtiste = (props) => {
+	const { navigation, route } = props;
+	const Article = route.params.item;
 
-    return (
-        <View style={{ flex: 1, backgroundColor: '#1D2942' }}>
+	console.log(Article.Article);
 
-            <TouchableOpacity style={{ padding: 5 }}>
-                <Icon name="less-than" size={30} color={'white'} />
-            </TouchableOpacity>
+	return (
+		<View style={{ flex: 1, backgroundColor: "#1D2942" }}>
+			<TouchableOpacity
+				style={{ padding: 5 }}
+				onPress={() => {
+					navigation.goBack();
+				}}
+			>
+				<Icon name="less-than" size={30} color={"white"} />
+			</TouchableOpacity>
 
-            <View style={{ alignItems: 'center' }}>
+			{/* <View style={{ alignItems: 'center' }}>
                 <Image style={{ width: 180, height: 180, borderRadius: 150, marginTop: 60 }} source={require('../assets/images/profil_pics/profil_jocondeDuck.png')} />
-            </View>
+            </View> */}
 
-            <View style={{ alignItems: 'center' }}>
-                <Text style={{ marginTop: 15, color: '#5FC2BA', fontSize: 30, fontFamily: 'Roboto', marginBottom: 20 }}>Appel Entrant</Text>
-            </View>
+			<View style={{ alignItems: "center" }}>
+				<Text
+					style={{
+						marginTop: 15,
+						color: "#5FC2BA",
+						fontSize: 30,
+						fontFamily: "Roboto",
+						marginBottom: 20,
+					}}
+				>
+					{Article.Artiste}
+				</Text>
+			</View>
 
-            <View style={{ alignItems: 'center', width: '75%', alignContent: 'center', alignSelf: 'center' }}>
-                <Text numberOfLines={8} style={{ color: 'white' }}> Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Sed debitis esse impedit nostrum! Eius, minus eligendi sapiente modi
-                    dolores blanditiis neque esse possimus sint! Sapiente dolore voluptatibus quas earum molestiae!
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Sed debitis esse impedit nostrum! Eius, minus eligendi sapiente modi
-                    dolores blanditiis neque esse possimus sint! Sapiente dolore voluptatibus quas earum molestiae</Text>
-
-            </View>
-
-            <View style={{alignItems: 'center'}}>
-                <TouchableOpacity style={{
-                    width: 250, height: 45, backgroundColor: "#5FC2BAA6",
-                    borderRadius: 20, alignItems: 'flex-start', marginTop: 40, marginBottom: 20, alignItems: 'center', justifyContent: 'center'
-                }}>
-                    <View style={{ flexDirection: 'row' }}>
-
-                        <Title style={{ color: 'white' }}>Envoyer un mail   </Title>
-                        <Icon name="mail" size={30} color={'white'} />
-                    </View>
-
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={{
-                    width: 250, height: 45, backgroundColor: "#5FC2BAA6",
-                    borderRadius: 20, alignItems: 'flex-start', marginBottom: 20, alignItems: 'center', justifyContent: 'center'
-                }}>
-                    <View style={{ flexDirection: 'row' }}>
-
-                        <Title style={{ color: 'white' }}>Portfolio   </Title>
-                        <Icon name="diamond-stone" size={30} color={'white'} />
-                    </View>
-
-
-                </TouchableOpacity>
-
-            </View>
-
-        </View>
-    )
-}
+			<ScrollView
+            >
+				<View style={{paddingHorizontal:15}}>
+					<Text style={{ color: "white", textAlign: "justify" }}>
+						{Article.Article}
+					</Text>
+				</View>
+			</ScrollView>
+		</View>
+	);
+};
 
 export default PageArtiste;

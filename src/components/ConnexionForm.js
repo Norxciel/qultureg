@@ -63,85 +63,87 @@ const ConnexionForm = () => {
 	};
 
 	if (initializing) return null;
-	if (!user) {
-		return (
-			<View style={{ flex: 1, backgroundColor: "#1D2942" }}>
-				<TouchableOpacity style={{ padding: 5 }}
-					onPress={() => {
-						navigation.goBack();
-					}}>
-					<Icon name="less-than" size={30} color={"white"} />
-				</TouchableOpacity>
+console.log(user);
+  if (!user) {
+    return (
+		<View style={{ flex: 1, backgroundColor: "#1D2942" }}>
+		<TouchableOpacity style={{ padding: 5 }}
+			onPress={() => {
+				navigation.goBack();
+			}}>
+			<Icon name="less-than" size={30} color={"white"} />
+		</TouchableOpacity>
 
-				<View style={{ alignItems: "center" }}>
-					<Text
-						style={{
-							marginTop: 15,
-							color: "#5FC2BA",
-							fontSize: 45,
-							fontFamily: "Roboto",
-						}}
-					>
-						Se connecter
-					</Text>
-				</View>
+		<View style={{ alignItems: "center" }}>
+			<Text
+				style={{
+					marginTop: 15,
+					color: "#5FC2BA",
+					fontSize: 45,
+					fontFamily: "Roboto",
+				}}
+			>
+				Se connecter
+			</Text>
+		</View>
 
-				<View style={{ alignItems: "center" }}>
-					<Image
-						style={{ width: "90%", height: 250 }}
-						resizeMode={"contain"}
-						source={require("../assets/images/unDraw/unDraw_Connect.png")}
+		<View style={{ alignItems: "center" }}>
+			<Image
+				style={{ width: "90%", height: 250 }}
+				resizeMode={"contain"}
+				source={require("../assets/images/unDraw/unDraw_Connect.png")}
+			/>
+		</View>
+
+		<View style={{ alignItems: "center" }}>
+			<Controller
+				control={control}
+				rules={{
+					required: true,
+				}}
+				render={({ field: { onChange, onBlur, value } }) => (
+					<TextInput
+						style={styles.input}
+						theme={{colors:{text:"white"}}}
+						onBlur={onBlur}
+						onChangeText={onChange}
+						value={value}
+						placeholder={"Votre E-mail ici"}
+						placeholderTextColor={"#5FC2BA"}
+						autoCapitalize='none'
 					/>
-				</View>
+				)}
+				name="email"
+				defaultValue=""
+			/>
+			{errors.email && (
+				<Text style={{ color: "#5FC2BA", marginTop: 5 }}>
+					Ce champ est obligatoire
+				</Text>
+			)}
 
-				<View style={{ alignItems: "center" }}>
-					<Controller
-						control={control}
-						rules={{
-							required: true,
-						}}
-						render={({ field: { onChange, onBlur, value } }) => (
-							<TextInput
-								style={styles.input}
-								onBlur={onBlur}
-								onChangeText={onChange}
-								value={value}
-								placeholder={"Votre E-mail ici"}
-								placeholderTextColor={"#5FC2BA"}
-								autoCapitalize='none'
-							/>
-						)}
-						name="email"
-						defaultValue=""
-					/>
-					{errors.email && (
-						<Text style={{ color: "#5FC2BA", marginTop: 5 }}>
-							Ce champ est obligatoire
-						</Text>
-					)}
-
-					<Controller
-						control={control}
-						rules={{
-							maxLength: 100,
-							required: true,
-						}}
-						render={({ field: { onChange, onBlur, value } }) => (
-							<TextInput
-								style={styles.input}
-								secureTextEntry={true}
-								onBlur={onBlur}
-								onChangeText={onChange}
-								value={value}
-								placeholder={"Votre mot de passe ici"}
-								placeholderTextColor={"#5FC2BA"}
-								autoCapitalize='none'
-								right={
-									<TextInput.Icon
-										name={pwdVisible ? "eye-off" : "eye"}
-										onPress={handlePwdVisible}
-									/>
-								}
+			<Controller
+				control={control}
+				rules={{
+					maxLength: 100,
+					required: true,
+				}}
+				render={({ field: { onChange, onBlur, value } }) => (
+					<TextInput
+						style={styles.input}
+						theme={{colors:{text:"white"}}}
+						secureTextEntry={!pwdVisible}
+						onBlur={onBlur}
+						onChangeText={onChange}
+						value={value}
+						placeholder={"Votre mot de passe ici"}
+						placeholderTextColor={"#5FC2BA"}
+						autoCapitalize='none'
+						right={
+							<TextInput.Icon
+								name={pwdVisible ? "eye-off" : "eye"}
+								color="#5FC2BA"
+								onPress={handlePwdVisible}
 							/>
 						)}
 						name="password"
