@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import userReducer from "./slices/userSlice";
+import {
+	UserReducer,
+	StackNavReducer
+} from "./slices";
 
 export default configureStore({
 	reducer: {
-		user: userReducer,
+		user: UserReducer,
+		stackNav:StackNavReducer
 	},
 });
