@@ -20,7 +20,6 @@ const HomeStart = (props) => {
             .then(() => { Alert.alert('User signed out!'); customer.setUser('') });
     }
 
-
     ref.onSnapshot(querySnapshot => {
         const list = [];
         querySnapshot.forEach(doc => {
@@ -30,7 +29,6 @@ const HomeStart = (props) => {
                 lastname: name,
                 firstname: firstname,
             });
-            // console.log(list);
         });
     }, []);
 
